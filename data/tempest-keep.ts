@@ -47,8 +47,16 @@ export const tempestKeepBosses: Boss[] = [
     strategy:
       'Fase 1: Tanques rotativos en las plataformas, DPS de distancia en el suelo. Destruir el huevo al instante cuando caiga. Fase 2: Combate directo. Rotar tanques por Embate de Llama. Máximo DPS antes del Frenesí.',
     phases: [
-      { name: 'Fase 1', description: 'Al\'ar vuela entre plataformas. Dos tanques lo siguen. Ataque en picado y huevo al morir.' },
-      { name: 'Fase 2 (60%)', description: 'Al\'ar aterriza. Combate directo. Explosión de Brasas frecuente.' },
+      {
+        name: 'Fase 1 — Al\'ar en vuelo (100–0% → revive al 60%)',
+        description:
+          "Al'ar vuela entre las cuatro plataformas elevadas en las esquinas de la sala. Dos tanques lo persiguen: uno cubre las plataformas norte, otro las sur. Cuando Al'ar se posa en una plataforma, el tanque correspondiente sube y lo tanquea. Los DPS de distancia atacan desde el suelo central. Los cuerpo a cuerpo tienen acceso muy limitado. Periódicamente Al'ar se lanza en picado contra un jugador aleatorio — la raid se dispersa. Al llegar Al'ar al 0% en Fase 1, deja un huevo en el suelo: PARAR TODO DPS e inmediatamente atacar el huevo antes de que eclosione. Si el huevo eclosiona, Al'ar revive con vida completa.",
+      },
+      {
+        name: 'Fase 2 — Al\'ar en tierra (desde el aterrizaje)',
+        description:
+          "Al'ar aterriza permanentemente en el centro de la sala. Un solo tanque principal lo sostiene. Todos los DPS cuerpo a cuerpo se suman al combate. Embate de Llama se acumula en el tanque activo — rotar tanques cada 5-6 acumulaciones para que el primero se limpie. Explosión de Brasas causa daño en área frecuente — los curanderos en los bordes de la sala y los DPS algo dispersos. Esta fase es más directa que la Fase 1 pero el daño al tanque es elevado. Máximo DPS.",
+      },
     ],
   },
   {
@@ -143,8 +151,16 @@ export const tempestKeepBosses: Boss[] = [
     strategy:
       'Combate relativamente directo hasta el 20%. Salir de Zonas de Vacío, alejarse si estás marcado. Al 20%, la transformación cambia todo: AoE en adds y máximo DPS en Solarian.',
     phases: [
-      { name: 'Fase 1 (100–20%)', description: 'Forma humana. Mecánicas estándar de separación y evasión.' },
-      { name: 'Fase 2 (20–0%)', description: 'Forma Naaru. Adds nuevos. Alto DPS para terminar rápido.' },
+      {
+        name: 'Fase 1 (100–20%) — Forma de Astrómante',
+        description:
+          'Solarian lanza Cólera de la Astrómante a objetivos de distancia aleatorios — daño alto pero inevitable. Las Zonas de Vacío aparecen en el suelo con indicador visual: alejarse inmediatamente. La mecánica más peligrosa es Ira de Solarian: marca a un jugador con un círculo, que tiene 3 segundos para alejarse de la raid antes de explotar. Si el marcado se aleja a tiempo y explota lejos, el daño es solo para él. Si explota cerca del grupo puede matar a varios. Esta fase dura mientras Solarian esté entre el 100% y el 20% de vida.',
+      },
+      {
+        name: 'Fase 2 (20–0%) — Transformación en Naaru oscuro',
+        description:
+          'Al llegar al 20%, Solarian se transforma en una entidad de vacío e invoca varios adds de sombra. Los adds deben ser tanqueados por un tanque secundario o controlados con CC mientras el DPS los limpia. La forma transformada tiene nuevos hechizos de sombra más peligrosos. Las Zonas de Vacío siguen apareciendo. Usar TODOS los cooldowns ofensivos disponibles para terminar cuanto antes — esta fase es breve si el DPS es suficiente pero puede alargarse peligrosamente si hay bajas entre los DPS.',
+      },
     ],
   },
   {
@@ -204,11 +220,31 @@ export const tempestKeepBosses: Boss[] = [
     strategy:
       'Cinco fases: Armas legendarias (Fase 1), Consejeros (Fase 2), Kael\'thas (Fase 3), Segunda ronda (Fase 4), Fase Final con todos activos (Fase 5). Preparar interrupciones para Pyroblast, destruir huevos de Fénix, no matar controlados mentalmente.',
     phases: [
-      { name: 'Fase 1', description: 'Armas legendarias animadas. Matar todas antes de continuar.' },
-      { name: 'Fase 2', description: 'Cuatro Consejeros. Matar en orden específico.' },
-      { name: 'Fase 3', description: 'Kael\'thas en combate directo.' },
-      { name: 'Fase 4', description: 'Kael\'thas resucita a los Consejeros.' },
-      { name: 'Fase 5', description: 'Todo activo. Lapso de Gravedad, Control Mental, Fénix.' },
+      {
+        name: 'Fase 1 — Las Armas Legendarias',
+        description:
+          "Cinco armas de la cámara cobran vida y atacan a la raid de forma independiente. Cada arma tiene sus propias mecánicas y debe ser tanqueada o esquivada. IMPORTANTE: ningún jugador debe recoger las armas del suelo durante esta fase — serán recogidas por cuatro jugadores designados en Fase 2. Sin mecánicas de jefe principal. Matar todas las armas en el orden más seguro para el grupo. Los tanques y curanderos establecen aquí sus rotaciones para lo que viene.",
+      },
+      {
+        name: 'Fase 2 — Los Cuatro Consejeros',
+        description:
+          "Los cuatro Consejeros de Kael'thas entran simultáneamente. Al mismo tiempo, cuatro jugadores designados RECOGEN las armas legendarias del suelo y las equipan — tienen bonificaciones enormes y son esenciales para el resto del encuentro. Orden de kill obligatorio: (1) Sacerdotisa Delrissa (curandera — interrumpir cada cast), (2) Tael'ara (mago de fuego — purgar sus buffs ofensivos), (3) Sanguinar (guerrero — es un tanque secundario), (4) Capernian (daño eléctrico — separar del grupo). Kael'thas aún no ha entrado al combate.",
+      },
+      {
+        name: "Fase 3 — Kael'thas en combate",
+        description:
+          "Kael'thas entra al combate. Un tanque principal lo sostiene. La mecánica de interrupción más crítica del encuentro: Pyroblast es un canal de 3 segundos que, si completa, mata al objetivo. Asignar DOS jugadores en rotación permanente de interrupción — nunca dejar pasar un Pyroblast. Fénix invocado periódicamente: matar el Fénix, luego atacar el huevo que deja. Golpe de Llama marca zonas en el suelo — salir del círculo. Esta fase es directa si las interrupciones funcionan.",
+      },
+      {
+        name: "Fase 4 — Resurrección de Consejeros",
+        description:
+          "Kael'thas resucita a los cuatro Consejeros con 50% de vida. Tanto el jefe como los Consejeros están activos simultáneamente. Los cuatro jugadores con las armas legendarias tienen ventaja aquí. Misma prioridad de kill que en Fase 2: eliminar Consejeros primero, luego volver a Kael'thas. Esta fase es breve si el DPS es eficiente. Los curanderos gestionan el daño de múltiples enemigos al mismo tiempo.",
+      },
+      {
+        name: 'Fase 5 — Poderes completos',
+        description:
+          "Con los Consejeros muertos de nuevo, Kael'thas activa sus habilidades completas. NUEVAS MECÁNICAS simultáneas: (A) Lapso de Gravedad — toda la raid flota y debe esquivar activamente los orbes de vacío que orbitan en el aire; (B) Control Mental en 3 jugadores — CC inmediato (no matar) y esperar que expire; (C) Fénix mejorado; (D) Pyroblast sigue activo — interrumpir siempre. Esta es la fase de mayor caos: mantener interrupciones, CC a los controlados, esquivar orbes voladores y curar al tanque todo al mismo tiempo.",
+      },
     ],
   },
 ];

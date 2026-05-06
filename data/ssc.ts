@@ -140,8 +140,16 @@ export const sscBosses: Boss[] = [
     strategy:
       'Dos tanques: uno para cada forma. Durante el Torbellino, retroceder. Cuando aparecen Demonios Interiores, cada jugador mata el suyo inmediatamente. Los encantados deben ser inmovilizados sin matarlos.',
     phases: [
-      { name: 'Forma Élfica', description: 'Torbellino periódico. DPS normal entre torbellinos.' },
-      { name: 'Forma Demoníaca', description: 'Demonios Interiores. Cada jugador mata el suyo. Nuevo tanque.' },
+      {
+        name: 'Forma de Elfo de Sangre (~60s)',
+        description:
+          'Leotheras ataca directamente al tanque principal. DPS normal desde detrás. Aproximadamente cada 20 segundos ejecuta Torbellino: en ese momento NO tiene objetivo fijo y gira dañando en área a su alrededor. TODOS los cuerpo a cuerpo retroceden al menos 8 metros en cuanto vean el Torbellino comenzar. Los DPS de distancia pueden continuar atacando sin problemas. El Torbellino dura 5-6 segundos. Al terminar, los cuerpo a cuerpo vuelven. Esta forma dura ~60 segundos antes de cambiar a Demoníaca.',
+      },
+      {
+        name: 'Forma Demoníaca (~45s)',
+        description:
+          'Al cambiar, Leotheras pierde su objetivo previo — el segundo tanque debe cogerlo INMEDIATAMENTE. Al mismo tiempo, 5 jugadores aleatorios ven aparecer su Demonio Interior personal. Esos 5 jugadores deben PARAR su DPS en Leotheras y matar a su propio Demonio (nadie más puede dañarlo). Tienen ~20 segundos. Si el Demonio Interior sobrevive cuando Leotheras regresa a Forma Élfica, mata instantáneamente a su jugador — no hay salvación posible. Los otros 20 jugadores siguen atacando a Leotheras con normalidad. Al terminar, Leotheras vuelve a Forma Élfica y el ciclo se repite.',
+      },
     ],
   },
   {
@@ -284,9 +292,21 @@ export const sscBosses: Boss[] = [
     strategy:
       'Fase 1: Tanquear a Vashj, dispersión de raid, eliminar Carga Estática alejándose. Fase 2: Desactivar los 4 pilares pasando Núcleos Contaminados en cadena mientras se controlan elementales con CC. Fase 3: Máximo DPS con curación de emergencia.',
     phases: [
-      { name: 'Fase 1 (100–70%)', description: 'Combate estándar. Carga Estática y separación son las mecánicas clave.' },
-      { name: 'Fase 2 (70–0% transitorio)', description: 'Vashj invulnerable. Cuatro pilares deben ser desactivados con Núcleos.' },
-      { name: 'Fase 3 (después de pilares)', description: 'Vashj vulnerable. Máximo DPS. Curación masiva por Esporas.' },
+      {
+        name: 'Fase 1 (100–70%)',
+        description:
+          'Combate directo con Vashj. Un tanque principal la sostiene en el centro. La raid se dispersa en círculo a 8+ metros entre jugadores para evitar el salto del Relámpago Bifurcado. Cuando un jugador recibe Carga Estática, se mueve inmediatamente al borde exterior de la sala y espera que expire — un curandero lo sigue. Los curanderos mantienen curación moderada constante. Al llegar Vashj al 70%, activa automáticamente su Escudo Prismático y comienza la Fase 2 — los cinco subgrupos deben estar ya preparados y en posición antes de este momento.',
+      },
+      {
+        name: 'Fase 2 — Escudo activo (70–0% transitorio)',
+        description:
+          'Vashj es completamente invulnerable. No atacarla. Cuatro tareas simultáneas: (A) Los Colmillos Nagas que aparecen en el norte/sur dropean Núcleos Contaminados — un tanque coge a los Colmillos para que no ataquen libremente. (B) Un jugador recoge el Núcleo caído y lo pasa en cadena (click derecho) a la persona más cercana al pilar correspondiente — el portador queda ralentizado así que la cadena debe ser eficiente. (C) Cuatro equipos cubren los cuatro pilares — al llegar el Núcleo, clicar en el pilar para desactivarlo. (D) Los Elementales Encantados DEBEN ser inmovilizados con CC (trampa de hielo, redes): si tocan a Vashj, la empoderan permanentemente. Cuando los cuatro pilares son desactivados, el escudo cae.',
+      },
+      {
+        name: 'Fase 3 — Sin escudo (tras los pilares)',
+        description:
+          'El escudo cae y Vashj vuelve a ser vulnerable. Ahora añade Esporas Tóxicas (DoT de veneno en toda la raid) a todas las mecánicas de Fase 1. La Carga Estática, el Relámpago y los Elementales siguen activos. La raid sufre daño masivo constante de las Esporas. Los curanderos en modo emergencia total. Usar TODAS las cooldowns ofensivas para terminar cuanto antes. Esta fase es una carrera contra el reloj: cuanto más dure, más probable es que los curanderos se queden sin maná.',
+      },
     ],
   },
 ];

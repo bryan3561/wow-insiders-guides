@@ -86,8 +86,16 @@ export const blackTempleBosses: Boss[] = [
     strategy:
       'Fase 1: Dos tanques, sin estar enfrente de los géiseres. Fase 2 (50%): Toda la raid en movimiento constante. El objetivo de persecución corre por el perímetro. Los DPS de distancia siguen atacando mientras corren.',
     phases: [
-      { name: 'Fase 1 (100–50%)', description: 'Combate directo. Dos tanques. Evitar géiseres.' },
-      { name: 'Fase 2 (50–0%)', description: 'Persecución. Todos corren. Movimiento constante.' },
+      {
+        name: 'Fase 1 (100–50%) — Combate directo',
+        description:
+          'Dos tanques en rotación por Golpe Odioso (siempre el segundo en agro recibe los golpes). El tanque principal frente a Supremus y el segundo tanque siempre en segunda posición de amenaza. Supremus golpea el suelo con Puñetazo Ardiente — llamas brotan alrededor del impacto: alejarse del área de salpicaduras. Las Erupciones Volcánicas marcan el suelo con círculo rojo antes del impacto — salir antes de que estallen. La raid mantiene posición relativamente estable entre los ataques. Esta fase dura hasta que Supremus llega al 50%.',
+      },
+      {
+        name: 'Fase 2 (50–0%) — Persecución aleatoria',
+        description:
+          'AL 50%, Supremus abandona su objetivo y empieza a perseguir jugadores ALEATORIOS a alta velocidad. El tanque pierde su función tradicional. TODA LA RAID en movimiento constante. El jugador perseguido corre por el perímetro exterior de la sala en círculo — nunca en diagonal ni deteniéndose. Cuando Supremus cambia de objetivo (cada 15-20 segundos), el nuevo perseguido toma el relevo. Los DPS de distancia atacan mientras se desplazan. Las Erupciones Volcánicas siguen apareciendo bajo los pies — muy difícil de evitar en movimiento. El daño es constante: curanderos en máxima actividad.',
+      },
     ],
   },
   {
@@ -260,9 +268,21 @@ export const blackTempleBosses: Boss[] = [
     strategy:
       'Fase 1 (Sufrimiento): Curación agresiva. Fase 2 (Deseo): Curación mínima, DPS alto. Fase 3 (Ira): Curación máxima de área, Totem de Temblor para el miedo. Cada fase dura unos 60 segundos.',
     phases: [
-      { name: 'Fase 1: Sufrimiento', description: 'Curación reducida. Curar el doble de lo normal.' },
-      { name: 'Fase 2: Deseo', description: 'Curación empodera al jefe. Curar solo lo mínimo.' },
-      { name: 'Fase 3: Ira', description: 'Daño masivo en área. Curación máxima y anti-miedo.' },
+      {
+        name: 'Fase 1 — Sufrimiento (~60 segundos)',
+        description:
+          "La entidad Sufrimiento ataca directamente al tanque. Su Aura del Sufrimiento reduce TODA la curación recibida en la raid a la mitad — los curanderos deben lanzar el doble de hechizos para mantener los mismos números. El tanque además recibe un debuff que aumenta el daño recibido cada segundo que permanece en contacto. TODOS los curanderos en el tanque simultáneamente — ninguno puede descansar. Si alguien con poco HP se acerca a Sufrimiento, puede morir al instante. La fase dura ~60 segundos y luego Sufrimiento desaparece y aparece Deseo.",
+      },
+      {
+        name: 'Fase 2 — Deseo (~60 segundos)',
+        description:
+          "REGLAS COMPLETAMENTE INVERTIDAS. Deseo tiene un Escudo de Runas que se recarga si sus aliados reciben curación. Curar demasiado hace a Deseo más poderosa e intocable. Los curanderos NO deben curar salvo para evitar una muerte inminente. El tanque debe aguantar con su propio HP regenerado naturalmente. Los DPS deben maximizar el daño para destruir el Escudo de Runas lo antes posible. Si alguien está a punto de morir, un curandero puede hacer un heal puntual mínimo — pero no en exceso. Esta fase requiere el mayor autocontrol de los curanderos de todo TBC.",
+      },
+      {
+        name: 'Fase 3 — Ira (~60 segundos)',
+        description:
+          "Ira es la más agresiva de las tres. Rencor lanza explosiones de sombra masivas en área a toda la raid de forma constante — curación de área MÁXIMA de inmediato. Grito del Alma atemoriza periódicamente a toda la raid — Totem de Temblor es absolutamente esencial, sin él la raid corre en pánico durante el momento más crítico. No hay mecánicas de curación invertida ni reducción. Usar TODOS los cooldowns ofensivos (Ansia de Sangre, Potenciación, Trinkets) y cooldowns de curación (Tranquilidad, etc.) para terminar antes de que el daño supere la capacidad de los curanderos.",
+      },
     ],
   },
   {
@@ -420,9 +440,21 @@ export const blackTempleBosses: Boss[] = [
     strategy:
       'Dos tanques en rotación por Desgarrar. Fase 2 (65%): Illidan vuela, toda la raid se agrupa, DPS de distancia. Fase 3 (30%): Maiev entra, guiarla a las Trampas. Fase final: Máximo DPS antes del enrage.',
     phases: [
-      { name: 'Fase 1 (100–65%)', description: 'Combate directo. Rotación de tanques por Desgarrar.' },
-      { name: 'Fase 2 (65–30%)', description: 'Illidan vuela. DPS de distancia. Rayo Ocular y parásitos.' },
-      { name: 'Fase 3 (30–0%)', description: 'Maiev aparece. Trampas de Sombra. Máximo DPS final.' },
+      {
+        name: 'Fase 1 (100–65%)',
+        description:
+          'Dos tanques en rotación estricta: Illidan aplica Desgarrar al tanque activo (reduce su armadura al 50% durante 10 segundos). Al primer segundo de Desgarrar, el Tanque B toma el agro inmediatamente y el Tanque A espera fuera hasta que su Desgarrar expire. Los DPS cuerpo a cuerpo atacan siempre desde detrás. Drenar Alma: curación de emergencia urgente al objetivo. Las zonas de fuego (Impacto de Llama) se depositan en el suelo — moverse fuera de ellas. Al llegar Illidan al 65%, vuela al centro de la sala y TODA la raid debe apilarse bajo él inmediatamente.',
+      },
+      {
+        name: 'Fase 2 (65–30%) — Illidan vuela',
+        description:
+          'Illidan flota en el centro de la sala. TODA LA RAID se apila debajo de él. Desde el aire lanza Rayo Ocular: un haz que gira en círculo. Los jugadores deben moverse en LA MISMA dirección de giro del rayo (no contra él) para no ser alcanzados. Parásito de Sombra: aparece en un jugador — DPS inmediato en el parásito antes de que eclosione. Los curanderos curan el daño constante del rayo y los parásitos. Los DPS de distancia siguen atacando a Illidan mientras está volando. Esta fase dura ~60 segundos. Al 30%, Illidan aterriza y entra MAIEV CANCIÓN DE SOMBRAS.',
+      },
+      {
+        name: 'Fase 3 (30–0%) — Maiev entra',
+        description:
+          'Maiev entra a la sala. Illidan empieza a colocar Trampas de Sombra en el suelo que inmovizan a los jugadores que las pisen. Solo Maiev puede desactivarlas — el Raid Leader debe guiarla activamente hacia cada trampa. Simultáneamente, la Fase 1 sigue activa: rotación de tanques por Desgarrar, Drenar Alma, zonas de fuego. Todo al mismo tiempo. Los curanderos en máxima intensidad. Los DPS ignoran las trampas y confían en que Maiev las desactive. MÁXIMO DPS disponible para terminar antes de que el daño acumulado supere la curación.',
+      },
     ],
   },
 ];

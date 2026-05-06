@@ -234,9 +234,21 @@ export const mountHyjalBosses: Boss[] = [
     strategy:
       'TODOS llevan la cuerda élfica y saben usarla. El marcado con Fuego de la Condena corre por el perímetro exterior. Los de distancia atacan desde 30+ metros. Totem de Temblor para el miedo. Al ser lanzados al aire, usar la cuerda inmediatamente.',
     phases: [
-      { name: 'Fase 1 (100–65%)', description: 'Mecánicas estándar. Fuego de la Condena y Ráfaga de Aire.' },
-      { name: 'Fase 2 (65–40%)', description: 'Raining Fire y Soul Charges adicionales.' },
-      { name: 'Fase 3 (40–0%)', description: 'Todas las mecánicas activas. Máximo caos.' },
+      {
+        name: 'Fase 1 (100–65%)',
+        description:
+          'PREPARACIÓN OBLIGATORIA antes del combate: todos los jugadores deben tener en el inventario la Cuerda de la Resistencia de los Elfos Nocturnos (se obtiene de los NPCs aliados al inicio de la raid) y saber usarla. Archimonde comienza con Fuego de la Condena — el marcado corre inmediatamente por el perímetro exterior de la sala sin parar, depositando un rastro de fuego que dura 5 minutos. Si deposita fuego en el centro, la sala queda inutilizable. Ráfaga de Aire lanza a un jugador aleatorio al aire: usar la cuerda inmediatamente al ser lanzado para descender lento y sobrevivir. Garra de la Legión es un DoT masivo en un objetivo aleatorio — curación de emergencia urgente. Totem de Temblor para el Miedo.',
+      },
+      {
+        name: 'Fase 2 (65–40%)',
+        description:
+          'Todas las mecánicas de Fase 1 continúan. Se añaden Cargas del Alma — cuando un jugador muere, deja una Carga que Archimonde puede absorber para curarse. Minimizar muertes es ahora más importante que el DPS agresivo. Las zonas de fuego se acumulan progresivamente en el suelo — el marcado debe ser especialmente inteligente al elegir su ruta periférica para no bloquear zonas de combate. Los curanderos gestionan el daño de fondo más Garra de la Legión simultáneamente. El ritmo del encuentro se acelera notablemente.',
+      },
+      {
+        name: 'Fase 3 (40–0%)',
+        description:
+          'Todas las mecánicas activas a mayor frecuencia. El suelo está parcialmente cubierto de fuego — el espacio útil es limitado. Ráfagas de Aire más frecuentes con posibles múltiples jugadores al aire simultáneamente. El marcado del Fuego debe elegir rutas muy cuidadosas para no bloquear el espacio restante. En esta fase el DPS pierde importancia frente a la supervivencia: curar todo, esquivar todo, usar la cuerda cada vez que te lancen. Archimonde muere solo si el grupo aguanta.',
+      },
     ],
   },
 ];

@@ -64,11 +64,11 @@ export default function BossCard({ boss }: Props) {
         {boss.phases && boss.phases.length > 0 && (
           <div>
             <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Fases</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+            <div className="flex flex-col gap-2">
               {boss.phases.map((phase, i) => (
                 <div key={i} className="bg-gray-800/60 border border-gray-700/60 rounded-lg p-3">
-                  <div className="text-yellow-500 text-xs font-bold">{phase.name}</div>
-                  <div className="text-gray-400 text-xs mt-0.5 leading-relaxed">{phase.description}</div>
+                  <div className="text-yellow-500 text-xs font-bold mb-1">{phase.name}</div>
+                  <div className="text-gray-400 text-sm leading-relaxed">{phase.description}</div>
                 </div>
               ))}
             </div>

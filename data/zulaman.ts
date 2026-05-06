@@ -47,8 +47,16 @@ export const zulamanBosses: Boss[] = [
     strategy:
       'Dos tanques en rotación por las acumulaciones de Mutilar. DPS interrumpe en forma humana. En forma de oso, curación máxima al tanque activo.',
     phases: [
-      { name: 'Forma Humana', description: 'Ataques interrumpibles. Embestida a distancia.' },
-      { name: 'Forma Oso', description: 'Mutilar y Zarpazo Brutal. Curación intensiva al tanque.' },
+      {
+        name: 'Forma Humana (~30 segundos)',
+        description:
+          'Nalorakk ataca en forma trol. Sus hechizos son interrumpibles — asignar un jugador dedicado a interrupciones. Sus ataques físicos son moderados, los curanderos pueden respirar levemente. Periódicamente elige a un jugador de distancia para Embestida causando daño alto — ese jugador necesita un curandero cerca o algún escudo activo. Esta forma dura aproximadamente 30 segundos antes de transformarse en oso. Preparar al segundo tanque para el cambio.',
+      },
+      {
+        name: 'Forma Oso (~30 segundos)',
+        description:
+          'Al transformarse, el daño físico se triplica. Mutilar acumula stacks de reducción de armadura en el tanque activo — ROTAR INMEDIATAMENTE cuando el tanque activo llegue a 3-4 acumulaciones. El segundo tanque toma el agro y el primero espera fuera del rango de cuerpo a cuerpo hasta que sus acumulaciones expiren. Zarpazo Brutal golpea en arco frontal — solo el tanque activo frente al oso. Los curanderos al máximo durante toda la Forma Oso. Esta forma dura ~30 segundos antes de regresar a Forma Humana. El ciclo se repite hasta la muerte.',
+      },
     ],
   },
   {
@@ -189,8 +197,16 @@ export const zulamanBosses: Boss[] = [
     strategy:
       'Dos tanques: uno para Halazzi y otro para el Espíritu del Lince cuando aparece. Dividir el Latigazo de Sable con jugadores adicionales frente al jefe. Limpiar venenos. Curación masiva durante el Frenesí final.',
     phases: [
-      { name: 'Forma Combinada', description: 'Combate normal. Latigazos y venenos.' },
-      { name: 'Espíritu Separado', description: 'Dos entidades. Dos tanques. Más complejo.' },
+      {
+        name: 'Forma Combinada (100/75/50/25%)',
+        description:
+          'Halazzi en forma completa. Mantener al menos 2-3 jugadores adicionales frente a Halazzi para dividir el Latigazo de Sable — si solo el tanque lo absorbe, muere. Los DPS de distancia atacan desde la retaguardia. Los cuerpo a cuerpo en los flancos. Los venenos aplican DoTs: limpiarlos con prioridad media. Al llegar al 75%, 50% y 25%, Halazzi separa automáticamente su Espíritu de Lince — preparar al segundo tanque para cogerlo al instante.',
+      },
+      {
+        name: 'Espíritu Separado (al 75%, 50%, 25%)',
+        description:
+          'El Espíritu de Lince aparece como entidad separada con aproximadamente un tercio de la vida total de Halazzi. El segundo tanque lo recoge inmediatamente. CRÍTICO: ambas entidades deben ser dañadas al mismo ritmo — si el Espíritu muere mucho antes que Halazzi, Halazzi lo reabsorbe y se cura masivamente. Los curanderos se dividen entre los dos tanques. Cuando ambos estén bajos, coordinar para matarlos casi simultáneamente. Al matar al Espíritu, Halazzi lo reabsorbe brevemente y recupera algo de vida antes de pasar a la siguiente separación.',
+      },
     ],
   },
   {
@@ -302,11 +318,31 @@ export const zulamanBosses: Boss[] = [
     strategy:
       'Cinco fases automáticas al 80%, 60%, 40%, 20%. Cada fase requiere adaptación: alejarse del Torbellino (Trol), DPS máximo (Oso), curación masiva (Águila), evasión de fuego (Dragonhawk), limpiar venenos y DPS final (Serpiente).',
     phases: [
-      { name: 'Fase Trol (100–80%)', description: 'Torbellino y hachas. Mecánicas básicas.' },
-      { name: 'Fase Oso (80–60%)', description: 'Regeneración. DPS máximo obligatorio.' },
-      { name: 'Fase Águila (60–40%)', description: 'Relámpagos continuos. Curación masiva.' },
-      { name: 'Fase Lince (40–20%)', description: 'Alta velocidad de ataque. Rotación de tanques.' },
-      { name: 'Fase Dragonhawk/Serpiente (20–0%)', description: 'Fuego acumulado y veneno. DPS máximo final.' },
+      {
+        name: 'Fase Trol (100–80%)',
+        description:
+          "Zul'jin en forma natural de trol. Un tanque principal. Torbellino periódico — todos los cuerpo a cuerpo retroceden al instante y regresan cuando termina (dura ~5 segundos). Lanzamiento con Saña aplica un DoT que solo cura con curación directa activa — un curandero se asigna a vigilar quién tiene el DoT. El combate aquí es relativamente directo. Al llegar al 80%, Zul'jin llama al espíritu del Oso y cambia de forma automáticamente.",
+      },
+      {
+        name: 'Fase Oso (80–60%)',
+        description:
+          "MECÁNICA CRÍTICA: Regeneración — Zul'jin se cura a sí mismo cada pocos segundos. Si el DPS total del grupo no supera esa curación, la pelea no termina nunca. Es el mayor exigente de DPS de Zul'Aman. Toda la raid debe dar su máximo: usar cooldowns ofensivos, pociones de ataque/hechizo, trinkets. El tanque gestiona el alto daño físico de la forma oso. Al 60%, cambia a Forma de Águila.",
+      },
+      {
+        name: 'Fase Águila (60–40%)',
+        description:
+          "Zul'jin adopta forma de águila. Los relámpagos son constantes e inevitables en toda la raid — los curanderos pasan a modo de emergencia activa: curación de área continua (Ola de Sanación Grande, Tranquilidad, Cadena de Curación). El daño físico al tanque disminuye pero el daño de área a la raid es intenso. Esta es la fase más exigente para los curanderos. Al 40%, cambia a Forma de Lince.",
+      },
+      {
+        name: 'Fase Lince (40–20%)',
+        description:
+          "Zul'jin adopta forma de lince con velocidad de ataque extremadamente alta. Un solo ataque no duele mucho, pero la cadencia de golpes hace que el daño al tanque por segundo sea muy alto. Los curanderos deben curar al tanque casi continuamente. El tanque puede necesitar sus propias cooldowns defensivas (Escudo de Hielo, Reflejos de Combate). Los DPS continúan su trabajo sin cambios. Al 20%, cambia a las formas finales.",
+      },
+      {
+        name: 'Fase Final — Dragonhawk y Serpiente (20–0%)',
+        description:
+          "Las dos últimas formas ocurren en rápida sucesión. Forma Dragonhawk: Torbellino de Llamas crea espirales de fuego en el suelo — salir del área del torbellino. El fuego aplica acumulaciones peligrosas si se reciben varios. Forma Serpiente: Veneno Paralizante paraliza a un jugador y aplica un DoT masivo — limpiar INMEDIATAMENTE. Zul'jin tiene muy poca vida restante pero las mecánicas son las más letales del encuentro. TODOS los cooldowns finales disponibles (Ansia de Sangre, trinkets, pociones). DPS máximo para terminar antes de que el daño por venenos sea insostenible.",
+      },
     ],
   },
 ];

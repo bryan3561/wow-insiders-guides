@@ -56,8 +56,16 @@ export const magtheridonBosses: Boss[] = [
     strategy:
       'Tanquear a Magtheridon en el centro. Cinco jugadores asignados a los cubos actúan como equipo de interrupción. Cuando empiece Nova Explosiva, clicar cubos inmediatamente. El resto de la raid maximiza DPS manteniéndose fuera del área de Golpe en Arco.',
     phases: [
-      { name: 'Fase 1 (100–30%)', description: 'Canalizadores activos. Clicar cubos cuando Magtheridon los active.' },
-      { name: 'Fase 2 (30–0%)', description: 'Magtheridon rompe su prisión. Daño en área aumentado. Nova Explosiva más frecuente.' },
+      {
+        name: 'Fase 1 (100–30%) — Canalizadores activos',
+        description:
+          'Los cinco Canalizadores en sus pilares sostienen la prisión de Magtheridon. Asignar cinco jugadores a los cinco Cubos de Dominio (uno por pilar). El DPS elimina Canalizadores uno a uno cuando tiene ventana — cada Canalizador muerto debilita a Magtheridon permanentemente. Cuando Magtheridon empieza a canalizar Nova Explosiva (indicado por animación y texto de combate), el Raid Leader da la señal y LOS CINCO jugadores clican su Cubo simultáneamente dentro de 1 segundo entre sí. Si la sincronización falla y Nova completa el canal, puede limpiar a la raid. El tanque principal mantiene a Magtheridon orientado lejos de la raid en todo momento.',
+      },
+      {
+        name: 'Fase 2 (30–0%) — Prisión rota',
+        description:
+          'Al llegar al 30%, Magtheridon rompe físicamente las cadenas de su prisión y partes del techo se derrumban sobre la sala. El espacio habitable se reduce con cada derrumbe. El daño de Magtheridon aumenta significativamente. Nova Explosiva ocurre más frecuentemente — el equipo de cubo debe reaccionar más rápido y con mejor coordinación. Los derrumbes del techo dañan a quien estén debajo cuando caen — reposicionar a la raid en zonas limpias. Esta fase es un sprint: matar antes del Frenesí a los 20 minutos totales de combate.',
+      },
     ],
   },
 ];

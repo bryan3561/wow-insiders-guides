@@ -49,12 +49,14 @@ export const karazhanBosses: Boss[] = [
       'Usa dos tanques: uno para Attumen y otro para Medianoche. Al 25% de vida de Medianoche, Attumen la monta. Un solo tanque principal para el jefe combinado. Mantén a la raid detrás del jefe y disipa maldiciones regularmente.',
     phases: [
       {
-        name: 'Fase 1 (100–25%)',
-        description: 'Dos tanques separados para Attumen y Medianoche. DPS enfocado en Medianoche.',
+        name: 'Fase 1 (100–25% de Medianoche)',
+        description:
+          'Dos tanques separados: Tanque A sostiene a Attumen en la esquina de la habitación, Tanque B tanquea a Medianoche en el centro. Todo el DPS se vuelca exclusivamente en Medianoche — ignorar a Attumen, su daño es menor en esta fase. Los curanderos se dividen: un curandero por tanque. Attumen lanzará sus habilidades normales pero es secundario. Al llegar Medianoche al 25%, Attumen la monta inmediatamente — preparar al Tanque B para asumir el jefe combinado en ese instante.',
       },
       {
         name: 'Fase 2 (Attumen montado)',
-        description: 'Un solo tanque principal. Posicionar al jefe de espaldas a la raid.',
+        description:
+          'Al montar Medianoche, Attumen combina las estadísticas de ambos. El Tanque B pasa a ser el único tanque activo. Posicionar al jefe con la cola apuntando a una pared para evitar que Nova de Sombras expulse al tanque al vacío. Todos los DPS atacan desde detrás. Los dos curanderos se consolidan en el tanque activo. Disipar Presencia Intangible del tanque en cuanto aparezca — a veces el jefe la lanza varias veces seguidas. El Tanque A queda en reserva en caso de que el principal caiga.',
       },
     ],
   },
@@ -115,12 +117,14 @@ export const karazhanBosses: Boss[] = [
       'Controlar a los sirvientes con CC (trampa de hielo, trampa de inmovilización, quiebra de sello). Matar primero a los sirvientes que curen o roben maná. Dos tanques: uno para Moroes y otro para los adds descontrolados. Curar con prioridad a los jugadores con Garrote.',
     phases: [
       {
-        name: 'Fase inicial',
-        description: 'Control de masas sobre los sirvientes, matar los curanderos primero.',
+        name: 'Fase inicial — Adds vivos',
+        description:
+          'Antes de iniciar el combate, asignar CC a cada add: Trampa de Hielo para uno, Quiebra de Sello para otro, Polimorfia para un tercero, y el cuarto queda al segundo tanque. El orden de kill es: primero cualquier add con Gran Curación o Quemar Maná (curanderos), luego los demás. Moroes puede ser ignorado completamente mientras los adds estén vivos — su daño individual es menor. Renovar los CC cada vez que expiren. Los jugadores marcados con Garrote reciben curación prioritaria en todo momento independientemente de lo que esté pasando.',
       },
       {
         name: 'Moroes solo',
-        description: 'Una vez eliminados los sirvientes, enfocarse totalmente en Moroes.',
+        description:
+          'Con todos los adds muertos, Moroes es el único objetivo. El Garrote sigue siendo activo en todos los jugadores marcados durante el resto del combate — la curación de esos jugadores no puede descuidarse. Moroes usará Golpe Bajo para aturdir al tanque principal de forma periódica: el segundo tanque asume el agro inmediatamente al ver el aturdimiento. Usar pociones de velocidad y cooldowns ofensivos para terminar cuanto antes — cuantas más acumulaciones de Garrote haya activas, más difícil es para los curanderos sostener a todos.',
       },
     ],
   },
@@ -535,10 +539,15 @@ export const karazhanBosses: Boss[] = [
     strategy:
       'Fase Portal: Rotar jugadores en los tres rayos (Rojo para tanques, Verde para curanderos, Azul para DPS mágico). Cuando un jugador tenga demasiadas acumulaciones, otro toma su lugar. Fase Destierro: DPS máximo mientras Netherspite está inmóvil.',
     phases: [
-      { name: 'Fase Portal', description: 'Rayos activos. Rotar jugadores en posición de absorción.' },
       {
-        name: 'Fase Destierro',
-        description: 'Netherspite es inmóvil. DPS máximo durante 30 segundos.',
+        name: 'Fase Portal (~60 segundos)',
+        description:
+          'Tres rayos de colores emergen de portales en las paredes: ROJO (noreste) absorbido por el tanque principal — aumenta armadura y generación de agro, pero cada acumulación también daña al portador. Rotar a un segundo tanque o guerrero DPS cuando haya 5-6 acumulaciones. VERDE (norte) absorbido por un curandero — multiplica su poder de curación enormemente. AZUL (sur) absorbido por un DPS mágico — potencia sus hechizos. Si un rayo llega a Netherspite sin ser absorbido, le aumenta el daño permanentemente. Los portadores deben alejarse del rayo ANTES de tener demasiadas acumulaciones para que otro tome el relevo sin cortes.',
+      },
+      {
+        name: 'Fase Destierro (~30 segundos)',
+        description:
+          'Los rayos desaparecen y Netherspite queda inmóvil en el centro. MÁXIMO DPS durante exactamente 30 segundos: todos los cooldowns ofensivos, pociones y trinkets. Netherspite no ataca en esta fase pero el daño del Aura Etérea sigue activo en toda la raid — los curanderos aprovechan para curar el daño acumulado. Al finalizar los 30 segundos, Netherspite regresa automáticamente a la Fase Portal. El ciclo se repite hasta la muerte.',
       },
     ],
   },
@@ -609,14 +618,20 @@ export const karazhanBosses: Boss[] = [
     strategy:
       'Fase 1: Combate estándar, cuidado con Debilitar. Fase 2 (60%): Curación masiva al tanque. Fase 3 (30%): Toda la raid en movimiento constante, curanderos en el tanque, kiting de hachas. Posicionar al jefe contra la pared.',
     phases: [
-      { name: 'Fase 1 (100–60%)', description: 'Combate estándar. Debilitar es la principal mecánica.' },
+      {
+        name: 'Fase 1 (100–60%)',
+        description:
+          'Un solo tanque contra la pared norte o sur para que Nova de Sombras no lo expulse al vacío. Debilitar aparece en 5 jugadores aleatorios — esos jugadores deben PARAR de atacar, alejarse del jefe y esperar los 8 segundos hasta que el debuff expire. Los curanderos no curan a los debilitados (hacerlo sería malgastar recursos — están a 1 punto de vida pero intocables). Disipar Palabra de Sombra: Dolor cuando sea posible. Sin cambios bruscos hasta el 60%.',
+      },
       {
         name: 'Fase 2 (60–30%)',
-        description: 'Golpear activo. Daño masivo al tanque. Todos los curanderos al tanque.',
+        description:
+          'Al 60% Malchezaar obtiene Golpear, triplicando su velocidad de ataque. El daño al tanque aumenta brutalmente. TODOS los curanderos pasan inmediatamente al tanque — ningún curandero puede descuidar al tanque ni un segundo en esta fase. Los DPS continúan atacando pero los curanderos son lo único que importa. Debilitar sigue apareciendo — los afectados siguen alejándose. Esta fase es el cuello de botella de curación del encuentro.',
       },
       {
         name: 'Fase 3 (30–0%)',
-        description: 'Hachas Voladoras + Amplificar Daño. Movimiento constante.',
+        description:
+          'Al 30% aparecen las Hachas Voladoras: dos hachas que orbitan y persiguen a jugadores aleatorios indefinidamente. No pueden destruirse ni pararse. Al mismo tiempo, Amplificar Daño aumenta el daño recibido por el tanque en un 75%. TODA LA RAID en movimiento constante — curanderos curan mientras corren, DPS ataca mientras corren. El tanque soporta Golpear + Amplificar + Hachas simultáneamente. Usar cooldowns defensivos del tanque (Escudo de Hielo, Mano de Sacrificio, etc.). Terminar cuanto antes con DPS máximo.',
       },
     ],
   },
@@ -694,11 +709,13 @@ export const karazhanBosses: Boss[] = [
     phases: [
       {
         name: 'Fase Terrestre',
-        description: 'Combate estándar en tierra. Cuidado con el aliento y la cola.',
+        description:
+          'Tanquear a Nightbane frente a una pared lateral, con la cola apuntando a una zona despejada. Los DPS cuerpo a cuerpo se posicionan en los flancos del dragón — nunca directamente detrás (Barrido de Cola) ni delante (Aliento Ardiente). Los curanderos y DPS de distancia en el extremo trasero de la sala. Disipar Ceniza Distractora del tanque en cuanto aparezca para evitar pérdida de agro. Los curanderos curan el DoT del Aliento constantemente. Al 75%, 50% y 25% de vida, Nightbane vuela automáticamente — preparar al tanque secundario para los esqueletos.',
       },
       {
-        name: 'Fase Aérea',
-        description: 'Nightbane vuela. Lluvia de huesos + Explosión Humeante. DPS de área en esqueletos.',
+        name: 'Fase Aérea (~45 segundos, al 75/50/25%)',
+        description:
+          'Nightbane vuela a un extremo de la sala. (1) Un tanque secundario gestiona los Esqueletos Guardia que emergen de portales — mantenerlos agrupados. (2) TODO el DPS de área limpia los esqueletos — son la prioridad. (3) Nightbane lanza Explosión Humeante al jugador con mayor amenaza en tierra — ese jugador necesita curación urgente. (4) Nightbane regresa a tierra al acabar la fase aérea — el tanque principal debe cogerlo INMEDIATAMENTE antes de que ataque a alguien sin armadura. Los DPS de distancia que generen demasiado agro son un riesgo durante la transición.',
       },
     ],
   },

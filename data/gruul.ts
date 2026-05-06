@@ -48,8 +48,16 @@ export const gruulBosses: Boss[] = [
     strategy:
       'Cinco tanques simultáneos: uno por cada add más Maulgar. Usar un mago para robar el Escudo Arcano de Krosh (si no, es unkillable). Matar adds en orden antes de ejecutar a Maulgar. Curanderos distribuidos entre todos los tanques.',
     phases: [
-      { name: 'Fase 1 (Adds vivos)', description: 'Control total de todos los adds. Matar en orden: Krosh, Blindeye, Olm, Kiggler.' },
-      { name: 'Fase 2 (Maulgar solo)', description: 'Un solo tanque principal. Raid agrupada detrás. Máximo DPS.' },
+      {
+        name: 'Fase 1 — Adds vivos',
+        description:
+          'ANTES DE TIRAR: Cinco tanques asignados, uno por cada enemigo. El mago se sitúa detrás de Krosh Firehand para robar su Escudo Arcano con Robar Hechizo antes de que empiece el combate — sin el escudo, Krosh es casi intocable para el tanque. CC inmediato en los adds de menor prioridad (Inmovilización, Quiebra de Sello). Orden de kill estricto: (1) Krosh Firehand — el mago necesita el escudo robado para que sea tankeable; (2) Blindeye el Vidente — interrumpir Gran Curación en todo momento; (3) Olm el Invocador — sus mascotas complican el encuentro; (4) Kiggler el Enloquecido — daño alto pero manejable; (5) Maulgar al final. Renovar CC en cada oportunidad.',
+      },
+      {
+        name: 'Fase 2 — Maulgar solo',
+        description:
+          'Con todos los adds eliminados, el combate se simplifica enormemente. UN SOLO tanque principal frente a Maulgar; toda la raid ataca desde atrás. Maulgar tiene las mismas mecánicas pero sin la presión de gestionar adds simultáneamente. Los curanderos se consolidan en el tanque principal. Usar todos los cooldowns ofensivos acumulados durante la Fase 1 para terminar rápido. Si algún add no fue correctamente controlado en Fase 1 y aún está vivo, tiene prioridad sobre Maulgar.',
+      },
     ],
   },
   {

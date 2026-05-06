@@ -47,8 +47,16 @@ export const sunwellBosses: Boss[] = [
     strategy:
       'Cuatro tanques: dos físicos (Kalecgos y rotación), dos espectrales (Sathrovarr y rotación). Los jugadores teletransportados al reino espectral ayudan en Sathrovarr y regresan antes del límite de tiempo. Matar a ambos casi simultáneamente.',
     phases: [
-      { name: 'Plano Físico', description: 'Combate con Kalecgos. Gestión de Embate Arcano y Explosiones Espectrales.' },
-      { name: 'Plano Espectral', description: 'Combate con Sathrovarr. Tiempo limitado antes de volver.' },
+      {
+        name: 'Plano Físico (activo siempre)',
+        description:
+          'En el plano físico la raid combate a Kalecgos. Dos tanques en rotación: máximo 5 acumulaciones de Embate Arcano antes de cambiar — el segundo tanque asume el agro inmediatamente. Kalecgos periódicamente lanza Explosión Espectral en un jugador aleatorio que lo teletransporta al reino espectral. Hasta 3 jugadores pueden estar en el espectral simultáneamente — la raid física debe gestionar el DPS con menos miembros durante ese tiempo. Cola del dragón: cuerpo a cuerpo en los flancos. La Corrupción se disipa de los curanderos con prioridad para que no pierdan eficacia.',
+      },
+      {
+        name: 'Plano Espectral (cuando son teletransportados)',
+        description:
+          'El jugador enviado aparece en una copia oscura de la sala y ve a Sathrovarr el Corrupto. Dos tanques espectrales dedicados rotan el Embate Arcano de Sathrovarr. Los visitantes del espectral tienen MÁXIMO 60 segundos antes de que el veneno espectral los mate — deben hacer DPS, curar si son curanderos, y BUSCAR el portal de regreso antes de que el contador llegue a 0. El progreso de daño es compartido entre planos: el porcentaje de vida que se quita en el espectral se aplica a Kalecgos en el físico y viceversa. Cuando Sathrovarr muere, Kalecgos muere también.',
+      },
     ],
   },
   {
@@ -145,8 +153,16 @@ export const sunwellBosses: Boss[] = [
     strategy:
       'Fase terrestre: dos tanques en rotación, DPS normal. Fase aérea: TODOS corren en dirección contraria a la Niebla de Corrupción. Los que no pueden escapar de la niebla mueren o se convierten.',
     phases: [
-      { name: 'Fase Terrestre', description: 'Combate directo. Corrosión en los tanques.' },
-      { name: 'Fase Aérea', description: 'Niebla de Corrupción y Nova de Gas. Correr de la niebla.' },
+      {
+        name: 'Fase Terrestre (~40-45 segundos)',
+        description:
+          'Felmyst combate en tierra. Dos tanques en rotación estricta por Corrosión — máximo 4-5 acumulaciones antes de cambiar. El tanque activo frente al dragón, el segundo en reserva. Los DPS cuerpo a cuerpo en los flancos (nunca detrás ni delante). Los DPS de distancia y curanderos en la retaguardia. Cuando Felmyst usa Encapsular en un jugador: PARAR TODO DPS y atacar la esfera inmediatamente — si no se destruye en segundos, el jugador muere y aparece un add demoníaco peligroso. Cuando Felmyst termina la fase terrestre, vuela.',
+      },
+      {
+        name: 'Fase Aérea (~25-30 segundos)',
+        description:
+          'Felmyst vuela hacia un extremo de la sala y exhala su Niebla de Corrupción en línea recta en la dirección que mira. La niebla convierte a los jugadores que toca en Thralls hostiles. TODA LA RAID debe correr activamente en dirección contraria o perpendicular a la niebla — nunca pararse. Los convertidos en Thralls deben ser inmovilizados con CC (no matados) y esperan que el efecto expire solos. Nova de Gas explota periódicamente durante la fase aérea causando daño masivo en área — curación masiva. Al terminar la fase aérea, Felmyst aterriza y el ciclo se repite desde la Fase Terrestre.',
+      },
     ],
   },
   {
@@ -243,8 +259,16 @@ export const sunwellBosses: Boss[] = [
     strategy:
       'Tres tanques: dos para M\'uru y uno para los Centinelas. DPS de AoE para los adds. Cuando M\'uru cae y se transforma en Entropius, máximo DPS final con curación de emergencia constante.',
     phases: [
-      { name: "Fase M'uru", description: 'Combate con Naaru. Gestión de adds y daño constante.' },
-      { name: 'Fase Entropius', description: 'Vórtice de sombras. Singularidades. DPS máximo para terminar.' },
+      {
+        name: "Fase M'uru (100–0%)",
+        description:
+          "M'uru flota en el centro. Dos tanques lo rotan por Embate Arcano. La mecánica principal son los Centinelas del Vacío que invoca periódicamente: Oscuridad del Vacío (grandes, el tercer tanque los sostiene) y Fuego del Vacío (pequeños, el DPS de AoE los limpia). El daño de Energía Negativa es constante en toda la raid — curación de área ininterrumpida. Las zonas de Oscuridad bloquean la visión en sectores de la sala — evitar moverse a ellas. Los portales adicionales en las esquinas invocany adds menores que deben ser controlados. Al llegar M'uru al 0%, se transforma instantáneamente en Entropius.",
+      },
+      {
+        name: 'Fase Entropius',
+        description:
+          "Entropius es un vórtice de sombras que flota en el centro y emite Singularidades: zonas de atracción que jalan a los jugadores hacia el vórtice dañándolos masivamente si los absorbe. TODOS los jugadores deben correr activamente hacia el exterior de la sala para resistir la atracción constante — si te quedas quieto, el vórtice te absorbe. No hay tanque principal — la atracción afecta a todos por igual. Curación masiva constante por el daño del vórtice. Los adds de la Fase M'uru que aún estén vivos siguen siendo peligrosos. DPS MÁXIMO para terminar esta fase cuanto antes — si se alarga, la curación no aguanta.",
+      },
     ],
   },
   {
@@ -301,10 +325,26 @@ export const sunwellBosses: Boss[] = [
     strategy:
       'Cuatro escudos de los Guardianes siempre disponibles para la Oscuridad de Mil Almas. Separación máxima entre jugadores. En Fase 4 (25%), todos los escudos se usan con cada canal. Máximo DPS para terminar antes del enrage.',
     phases: [
-      { name: 'Fase 1 (100–85%)', description: 'Mecánicas básicas de posicionamiento.' },
-      { name: 'Fase 2 (85–55%)', description: 'Orbes de fuego adicionales. Daño en área aumentado.' },
-      { name: 'Fase 3 (55–25%)', description: 'Oscuridad de Mil Almas. Escudos de los Guardianes obligatorios.' },
-      { name: 'Fase 4 (25–0%)', description: 'Todas las mecánicas activas. Escudos continuos. DPS máximo.' },
+      {
+        name: 'Fase 1 (100–85%)',
+        description:
+          'Fase introductoria con mecánicas moderadas. Un tanque principal. Dardos de Llama dan DoTs constantes a jugadores aleatorios — curación moderada continua. Espiga de Sombras brota del suelo con indicador circular — moverse antes del impacto. Relámpago de la Legión salta entre jugadores cercanos — mantener separación mínima de 8 metros entre todos. ASIGNAR desde el inicio cuatro portadores de Escudo de los Guardianes Naaru: estos jugadores deben localizar y recoger los escudos de los guardianes caídos que están esparcidos por la sala.',
+      },
+      {
+        name: 'Fase 2 (85–55%)',
+        description:
+          'Se añaden Orbes de Fuego que orbitan la sala en patrones y dañan a quien toquen — esquivarlos activamente mientras se mantiene la separación entre jugadores. El daño de Dardos de Llama aumenta. Los cuatro portadores de escudo deben tener sus escudos en mano, listos para activarlos. Las mecánicas de Fase 1 continúan con mayor intensidad. La separación de 8 metros es más difícil de mantener con los Orbes reduciendo el espacio útil.',
+      },
+      {
+        name: 'Fase 3 (55–25%)',
+        description:
+          "MECÁNICA CENTRAL: Oscuridad de Mil Almas. Kil'jaeden inicia un canal de 8 segundos que mata a TODA la raid si completa. Los cuatro portadores de escudo activan SUS ESCUDOS SIMULTÁNEAMENTE en cuanto el canal comienza — esto absorbe la Oscuridad y la cancela. El resto de la raid continúa su DPS normal. Tras usar los escudos, los portadores deben INMEDIATAMENTE buscar nuevos escudos de los Guardianes que van cayendo para tener escudos listos para el próximo canal. La Oscuridad se repite cada 60-90 segundos. Las mecánicas de fases anteriores siguen activas.",
+      },
+      {
+        name: 'Fase 4 (25–0%)',
+        description:
+          "Todas las mecánicas activas simultáneamente a mayor frecuencia. La Oscuridad de Mil Almas ocurre más seguido — los portadores deben recoger escudos con más urgencia y reaccionar más rápido. Flay del Alma añade DoTs masivos adicionales. Dardos, Espigas, Orbes, Relámpago y la Oscuridad ocurren en cascada. El daño es casi insostenible. TODOS los cooldowns de curación y supervivencia activos. Los portadores de escudo son los jugadores más críticos del encuentro — una falla en los escudos es un wipe instantáneo.",
+      },
     ],
   },
 ];
