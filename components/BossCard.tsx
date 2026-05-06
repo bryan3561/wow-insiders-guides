@@ -67,8 +67,19 @@ export default function BossCard({ boss }: Props) {
             <div className="flex flex-col gap-2">
               {boss.phases.map((phase, i) => (
                 <div key={i} className="bg-gray-800/60 border border-gray-700/60 rounded-lg p-3">
-                  <div className="text-yellow-500 text-xs font-bold mb-1">{phase.name}</div>
-                  <div className="text-gray-400 text-sm leading-relaxed">{phase.description}</div>
+                  <div className="text-yellow-500 text-xs font-bold mb-2">{phase.name}</div>
+                  {phase.events && phase.events.length > 0 ? (
+                    <ul className="space-y-1.5">
+                      {phase.events.map((event, j) => (
+                        <li key={j} className="flex items-start gap-2 text-sm text-gray-300 leading-relaxed">
+                          <span className="mt-1.5 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-yellow-600" />
+                          {event}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <div className="text-gray-400 text-sm leading-relaxed">{phase.description}</div>
+                  )}
                 </div>
               ))}
             </div>

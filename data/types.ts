@@ -13,6 +13,7 @@ export interface Ability {
 export interface Phase {
   name: string;
   description: string;
+  events?: string[];
 }
 
 export interface Boss {
