@@ -10,6 +10,17 @@ export interface Ability {
   warning?: string;
 }
 
+export type SpellRefType = 'spell' | 'npc' | 'object';
+
+export interface SpellRef {
+  id: number;
+  type: SpellRefType;
+  name: string;
+  icon: string;
+  school: string;
+  description: string;
+}
+
 export interface Phase {
   name: string;
   description: string;
@@ -27,6 +38,7 @@ export interface Boss {
   strategy: string;
   phases?: Phase[];
   group?: string;
+  spellRefs?: Record<string, SpellRef>;
 }
 
 export interface RaidMeta {

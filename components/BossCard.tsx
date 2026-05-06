@@ -1,5 +1,6 @@
 import type { Boss } from '@/data/types';
 import AbilityRow from './AbilityRow';
+import InlineRef from './InlineRef';
 
 const difficultyConfig = [
   { label: 'Muy Fácil', color: 'text-green-400',  border: 'border-green-800/50' },
@@ -73,7 +74,7 @@ export default function BossCard({ boss }: Props) {
                       {phase.events.map((event, j) => (
                         <li key={j} className="flex items-start gap-2 text-sm text-gray-300 leading-relaxed">
                           <span className="mt-1.5 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-yellow-600" />
-                          {event}
+                          <InlineRef text={event} refs={boss.spellRefs} />
                         </li>
                       ))}
                     </ul>
