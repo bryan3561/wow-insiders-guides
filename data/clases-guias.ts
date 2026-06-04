@@ -4,6 +4,7 @@ export const classGuides: Record<string, ClassGuide> = {
   druida: {
     id: 'druida',
     name: 'Druida',
+    nameEn: 'Druid',
     description: 'Versatile shapeshifters with unmatched utility',
     roles: ['Tank', 'Healer', 'DPS'],
     specs: [
@@ -64,6 +65,7 @@ export const classGuides: Record<string, ClassGuide> = {
   cazador: {
     id: 'cazador',
     name: 'Cazador',
+    nameEn: 'Hunter',
     description: 'Mobile ranged DPS with powerful pets and crowd control',
     roles: ['DPS'],
     specs: [
@@ -124,6 +126,7 @@ export const classGuides: Record<string, ClassGuide> = {
   mago: {
     id: 'mago',
     name: 'Mago',
+    nameEn: 'Mage',
     description: 'Pure ranged casters dealing massive elemental damage',
     roles: ['DPS'],
     specs: [
@@ -184,6 +187,7 @@ export const classGuides: Record<string, ClassGuide> = {
   paladin: {
     id: 'paladin',
     name: 'Paladín',
+    nameEn: 'Paladin',
     description: 'Holy warriors combining melee damage with divine magic',
     roles: ['Tank', 'Healer', 'DPS'],
     specs: [
@@ -244,6 +248,7 @@ export const classGuides: Record<string, ClassGuide> = {
   sacerdote: {
     id: 'sacerdote',
     name: 'Sacerdote',
+    nameEn: 'Priest',
     description: 'Master healers and dark casters with unique buffs',
     roles: ['Healer', 'DPS'],
     specs: [
@@ -304,6 +309,7 @@ export const classGuides: Record<string, ClassGuide> = {
   picaro: {
     id: 'picaro',
     name: 'Pícaro',
+    nameEn: 'Rogue',
     description: 'Deadly assassins dealing massive burst with stealth',
     roles: ['DPS'],
     specs: [
@@ -364,6 +370,7 @@ export const classGuides: Record<string, ClassGuide> = {
   chaman: {
     id: 'chaman',
     name: 'Chamán',
+    nameEn: 'Shaman',
     description: 'Versatile spellcasters with elemental power and totems',
     roles: ['Healer', 'DPS'],
     specs: [
@@ -424,6 +431,7 @@ export const classGuides: Record<string, ClassGuide> = {
   brujo: {
     id: 'brujo',
     name: 'Brujo',
+    nameEn: 'Warlock',
     description: 'Dark casters commanding demons and curses',
     roles: ['DPS'],
     specs: [
@@ -484,6 +492,7 @@ export const classGuides: Record<string, ClassGuide> = {
   guerrero: {
     id: 'guerrero',
     name: 'Guerrero',
+    nameEn: 'Warrior',
     description: 'Mighty melee combatants excelling in tanks or DPS roles',
     roles: ['Tank', 'DPS'],
     specs: [

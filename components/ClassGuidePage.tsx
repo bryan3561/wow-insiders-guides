@@ -28,11 +28,14 @@ export default function ClassGuidePage({ guide }: { guide: ClassGuide }) {
       >
         <div className="max-w-4xl mx-auto">
           <h1
-            className="text-5xl font-bold text-amber-400 mb-4"
+            className="text-5xl font-bold text-amber-400 mb-2"
             style={{ fontFamily: 'var(--font-cinzel), Georgia, serif', letterSpacing: '0.35em' }}
           >
             {guide.name.toUpperCase()}
           </h1>
+          {guide.nameEn && (
+            <p className="text-sm italic mb-4" style={{ color: '#5a5248' }}>{guide.nameEn}</p>
+          )}
           <p className="text-lg text-gray-300 mb-6">{guide.description}</p>
 
           {/* Role Badges */}

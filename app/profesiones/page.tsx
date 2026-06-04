@@ -94,12 +94,15 @@ export default function ProfesionesPage() {
                 <div className={`h-1.5 bg-gradient-to-r ${prof.color}`} />
                 <div className="p-5">
                   <div className="flex items-start justify-between gap-3 mb-3">
-                    <h3
-                      className="text-lg font-bold text-yellow-400 leading-tight"
-                      style={{ fontFamily: 'var(--font-cinzel), Georgia, serif' }}
-                    >
-                      {prof.name}
-                    </h3>
+                    <div>
+                      <h3
+                        className="text-lg font-bold text-yellow-400 leading-tight"
+                        style={{ fontFamily: 'var(--font-cinzel), Georgia, serif' }}
+                      >
+                        {prof.name}
+                      </h3>
+                      <p className="text-xs text-gray-600 italic mt-0.5">{prof.nameEn}</p>
+                    </div>
                     <span
                       className={`flex-shrink-0 text-xs font-medium px-2 py-0.5 rounded-full border ${typeColor[prof.type]}`}
                     >
@@ -138,12 +141,15 @@ export default function ProfesionesPage() {
                 <div className={`h-1.5 bg-gradient-to-r ${prof.color}`} />
                 <div className="p-5">
                   <div className="flex items-start justify-between gap-3 mb-3">
-                    <h3
-                      className="text-lg font-bold text-yellow-400 leading-tight"
-                      style={{ fontFamily: 'var(--font-cinzel), Georgia, serif' }}
-                    >
-                      {prof.name}
-                    </h3>
+                    <div>
+                      <h3
+                        className="text-lg font-bold text-yellow-400 leading-tight"
+                        style={{ fontFamily: 'var(--font-cinzel), Georgia, serif' }}
+                      >
+                        {prof.name}
+                      </h3>
+                      <p className="text-xs text-gray-600 italic mt-0.5">{prof.nameEn}</p>
+                    </div>
                     <span
                       className={`flex-shrink-0 text-xs font-medium px-2 py-0.5 rounded-full border ${typeColor[prof.type]}`}
                     >

@@ -45,6 +45,7 @@ export interface RaidMeta {
   id: string;
   slug: string;
   name: string;
+  nameEn: string;
   shortName: string;
   description: string;
   players: 10 | 25;
@@ -117,6 +118,7 @@ export interface ClassSpec {
 export interface ClassGuide {
   id: string;
   name: string;
+  nameEn?: string;
   description: string;
   roles: string[];
   specs: ClassSpec[];

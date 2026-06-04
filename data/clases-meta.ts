@@ -3,6 +3,7 @@ export type Rol = 'tank' | 'healer' | 'dps' | 'hibrido';
 export interface ClaseMeta {
   id: string;
   name: string;
+  nameEn: string;
   color: string;
   border: string;
   description: string;
@@ -17,6 +18,7 @@ export const clasesMeta: ClaseMeta[] = [
   {
     id: 'druida',
     name: 'Druida',
+    nameEn: 'Druid',
     color: 'from-orange-900/60 to-amber-950/60',
     border: 'border-orange-600/50',
     description: 'El maestro de la versatilidad. Puede cambiar de forma para tankear, curar o hacer daño. Tiene el árbol de talentos más flexible de TBC.',
@@ -32,6 +34,7 @@ export const clasesMeta: ClaseMeta[] = [
   {
     id: 'cazador',
     name: 'Cazador',
+    nameEn: 'Hunter',
     color: 'from-green-900/60 to-emerald-950/60',
     border: 'border-green-600/50',
     description: 'Maestro del combate a distancia y las mascotas. Aporta traps de control y el buff Aspect of the Hawk. Uno de los mejores DPS de TBC.',
@@ -47,6 +50,7 @@ export const clasesMeta: ClaseMeta[] = [
   {
     id: 'mago',
     name: 'Mago',
+    nameEn: 'Mage',
     color: 'from-blue-900/60 to-sky-950/60',
     border: 'border-blue-600/50',
     description: 'El rey del DPS mágico puro. Domina el fuego, el frío y lo arcano. Aporta Arcane Intellect, conjura comida/agua y abre portales.',
@@ -62,6 +66,7 @@ export const clasesMeta: ClaseMeta[] = [
   {
     id: 'paladin',
     name: 'Paladín',
+    nameEn: 'Paladin',
     color: 'from-pink-900/60 to-rose-950/60',
     border: 'border-pink-600/50',
     description: 'El guerrero sagrado. Disponible para la Horda en TBC gracias a los Draenei Paladín de la Alianza y los Paladin de Sangre de la Horda. Aporta auras y blessings únicos.',
@@ -78,6 +83,7 @@ export const clasesMeta: ClaseMeta[] = [
   {
     id: 'sacerdote',
     name: 'Sacerdote',
+    nameEn: 'Priest',
     color: 'from-slate-700/60 to-gray-950/60',
     border: 'border-slate-500/50',
     description: 'El sanador por excelencia. Tiene las herramientas de curación más completas del juego: shields, HoTs, AoE heals y resurrecciones de combate.',
@@ -93,6 +99,7 @@ export const clasesMeta: ClaseMeta[] = [
   {
     id: 'picaro',
     name: 'Pícaro',
+    nameEn: 'Rogue',
     color: 'from-yellow-900/60 to-amber-950/60',
     border: 'border-yellow-700/50',
     description: 'El asesino furtivo. Especialista en daño cuerpo a cuerpo y control con Stun/Blind/Gouge. Excelente DPS en raids y dominante en PvP.',
@@ -108,6 +115,7 @@ export const clasesMeta: ClaseMeta[] = [
   {
     id: 'chaman',
     name: 'Chamán',
+    nameEn: 'Shaman',
     color: 'from-blue-800/60 to-indigo-950/60',
     border: 'border-blue-500/50',
     description: 'Ahora disponible para la Alianza como Draenei. La clase más impactante por las Totems que aportan buffs únicos a todo el grupo: Windfury, Mana Spring, Wrath of Air.',
@@ -124,6 +132,7 @@ export const clasesMeta: ClaseMeta[] = [
   {
     id: 'brujo',
     name: 'Brujo',
+    nameEn: 'Warlock',
     color: 'from-purple-900/60 to-violet-950/60',
     border: 'border-purple-600/50',
     description: 'Maestro de la magia oscura y las invocaciones. Aporta Healthstones, piedras de alma y uno de los DPS más altos de la expansión con Destruction.',
@@ -139,6 +148,7 @@ export const clasesMeta: ClaseMeta[] = [
   {
     id: 'guerrero',
     name: 'Guerrero',
+    nameEn: 'Warrior',
     color: 'from-red-900/60 to-rose-950/60',
     border: 'border-red-600/50',
     description: 'El tanque principal de TBC y un DPS cuerpo a cuerpo feroz. Los Warriors dominan el tanqueo de main bosses gracias a su mitigation y Shouts.',

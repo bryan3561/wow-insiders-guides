@@ -68,12 +68,15 @@ export default function ClasesPage() {
                 <div className="p-5">
                   {/* Header */}
                   <div className="flex items-start justify-between gap-2 mb-2">
-                    <h3
-                      className="text-lg font-bold text-yellow-400 leading-tight group-hover:text-yellow-300 transition-colors"
-                      style={{ fontFamily: 'var(--font-cinzel), Georgia, serif' }}
-                    >
-                      {clase.name}
-                    </h3>
+                    <div>
+                      <h3
+                        className="text-lg font-bold text-yellow-400 leading-tight group-hover:text-yellow-300 transition-colors"
+                        style={{ fontFamily: 'var(--font-cinzel), Georgia, serif' }}
+                      >
+                        {clase.name}
+                      </h3>
+                      <p className="text-xs text-gray-600 italic mt-0.5">{clase.nameEn}</p>
+                    </div>
                     {clase.isNew && (
                       <span className="flex-shrink-0 text-xs font-bold px-2 py-0.5 rounded-full bg-yellow-900/40 border border-yellow-700/60 text-yellow-400 uppercase tracking-wide">
                         NUEVO EN TBC
