@@ -11,8 +11,8 @@ export async function generateStaticParams() {
   return clasesMeta.map((clase) => ({ id: clase.id }));
 }
 
-export function generateMetadata({ params }: Props) {
-  const id = (params as any).id;
+export async function generateMetadata({ params }: Props) {
+  const { id } = await params;
   const guide = classGuides[id];
   return {
     title: guide
