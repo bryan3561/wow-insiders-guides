@@ -47,6 +47,38 @@ export const sscBosses: Boss[] = [
     ],
     strategy:
       'Dos tanques con sets de resistencias opuestos. Mantener a Hydross en su forma el mayor tiempo posible para minimizar transiciones. Rotar tanques a las 4 acumulaciones. Los adds de transición tienen prioridad inmediata.',
+    phases: [
+      {
+        name: 'Fase 1 — Forma activa (Natural o Corrupta)',
+        description: '',
+        events: [
+          'El tanque correspondiente entra con su set de resistencia (Naturaleza o Sombras) según la forma actual de Hydross.',
+          'Toda la raid hace DPS estable evitando empujar transiciones antes de tiempo.',
+          'Control estricto de acumulaciones de Marca de Corrupción: a 4 acumulaciones se prepara el cambio de tanque.',
+          'Curanderos priorizan al tanque activo y mantienen cobertura en objetivos con daño mágico residual.',
+        ],
+      },
+      {
+        name: 'Fase 2 — Transición de forma',
+        description: '',
+        events: [
+          'El tanque mueve a Hydross a través de la línea de transición para forzar cambio de forma solo cuando la raid esté lista.',
+          'Al cambiar de forma aparecen adds elementales: prioridad máxima de control y limpieza rápida.',
+          'El nuevo tanque toma Hydross inmediatamente con el set de resistencia correcto para esa forma.',
+          'No encadenar transiciones seguidas: estabilizar la sala antes del siguiente cruce.',
+        ],
+      },
+      {
+        name: 'Fase 3 — Ejecución final',
+        description: '',
+        events: [
+          'Con menos vida del boss, mantener el mismo patrón: transición limpia, adds controlados, tanque correcto por forma.',
+          'Si el maná de healers cae, alargar ligeramente una forma para evitar transición desordenada.',
+          'DPS usa cooldowns cuando el raid leader confirme que no habrá transición inmediata.',
+          'La clave de cierre es disciplina: una transición mal tomada al final suele causar wipe.',
+        ],
+      },
+    ],
   },
   {
     id: 'lurker',
@@ -93,6 +125,38 @@ export const sscBosses: Boss[] = [
     ],
     strategy:
       'Posicionar a la raid en la plataforma central y en las plataformas exteriores. Cuando el Surtidor empiece, todos saltan al agua inmediatamente. Durante la fase sumergida, matar adds con AoE.',
+    phases: [
+      {
+        name: 'Fase 1 — Jefe emergido',
+        description: '',
+        events: [
+          'Tanque principal fija al jefe mirando lejos del grupo de melee.',
+          'Ranged y healers se reparten en plataformas exteriores para reducir daño simultáneo.',
+          'Al inicio de Surtidor, toda la raid salta al agua para evitar el barrido letal.',
+          'Tras terminar el barrido, volver rápido a posiciones para recuperar uptime de DPS/healing.',
+        ],
+      },
+      {
+        name: 'Fase 2 — Jefe sumergido',
+        description: '',
+        events: [
+          'El Acechador desaparece e invoca adds acuáticos: tanques secundarios los agrupan.',
+          'DPS de área limpia los packs antes de la siguiente emergencia del boss.',
+          'Healers priorizan objetivos aislados en plataformas que reciban foco de adds.',
+          'No perseguir adds fuera de posición: mejor reagrupar y limpiar por bloques.',
+        ],
+      },
+      {
+        name: 'Fase 3 — Repetición y cierre',
+        description: '',
+        events: [
+          'El encuentro alterna constantemente entre emergido/sumergido: mantener ritmo y no perder disciplina.',
+          'Cada error en Surtidor suele ser muerte inmediata, incluso con equipo avanzado.',
+          'En el tramo final usar cooldowns ofensivos al reaparecer el jefe para acortar ciclos.',
+          'Si la raid mantiene supervivencia en transiciones, el kill llega de forma estable.',
+        ],
+      },
+    ],
   },
   {
     id: 'leotheras',
@@ -189,6 +253,38 @@ export const sscBosses: Boss[] = [
     ],
     strategy:
       'Cuatro tanques para los cuatro enemigos. Orden de muerte: Caribdis > Tidalvess > Sharkkis > Karathress. Curandero designado como objetivo del Rayo Cataclísmico para proteger al resto.',
+    phases: [
+      {
+        name: 'Fase 1 — Pull y control inicial',
+        description: '',
+        events: [
+          'Cuatro tanques asignados antes del pull: uno por cada objetivo (Karathress + 3 consejeros).',
+          'Separa a los cuatro enemigos para reducir solapes de habilidades y facilitar interrupciones.',
+          'Orden de kill recomendado: Caribdis -> Tidalvess -> Sharkkis -> Karathress.',
+          'Interrupciones coordinadas sobre casts peligrosos de los consejeros, especialmente curaciones.',
+        ],
+      },
+      {
+        name: 'Fase 2 — Herencia de poderes',
+        description: '',
+        events: [
+          'Cada consejero muerto transfiere una mecánica adicional a Karathress.',
+          'Curanderos ajustan prioridad según el poder heredado activo en ese momento.',
+          'El objetivo del Rayo Cataclísmico debe estar preasignado y con soporte dedicado.',
+          'No acelerar de más el boss final si la raid está desordenada por cambios recientes.',
+        ],
+      },
+      {
+        name: 'Fase 3 — Karathress potenciado',
+        description: '',
+        events: [
+          'Con los tres consejeros caídos, Karathress concentra toda la presión del encuentro.',
+          'Tanques rotan defensivos en ventanas de daño alto y curanderos guardan CDs para ráfagas.',
+          'DPS usa cooldowns cuando healers confirmen estabilidad del grupo.',
+          'La ejecución final depende más del control que del daño bruto.',
+        ],
+      },
+    ],
   },
   {
     id: 'morogrim',
@@ -235,6 +331,38 @@ export const sscBosses: Boss[] = [
     ],
     strategy:
       'Tanquear a Morogrim lejos del agua. Todo el DPS de AoE debe saltar a los múrlocos instantáneamente cuando aparecen. Los curanderos en filas traseras protegidas. Curación masiva tras cada Ola de Marea.',
+    phases: [
+      {
+        name: 'Fase 1 — Presión base del boss',
+        description: '',
+        events: [
+          'Tanque principal fija a Morogrim en posición estable con la raid separada por grupos funcionales.',
+          'Cada [[Ola de Marea]] exige curación de raid rápida para evitar caídas en cadena.',
+          'Melee reacciona a [[Terremoto]] para no quedar vendidos durante picos de daño.',
+          'Ranged mantienen daño estable sin comprometer visión de entrada de adds.',
+        ],
+      },
+      {
+        name: 'Fase 2 — Olas de múrlocos',
+        description: '',
+        events: [
+          'Cuando salen múrlocos, todo el AoE asignado cambia objetivo inmediatamente.',
+          'Tanque secundario ayuda a fijar adds que se escapen hacia línea de healers.',
+          'Healers priorizan supervivencia propia y del tanque de adds antes de volver al boss.',
+          'Si los múrlocos no se limpian rápido, la presión de veneno desborda la raid.',
+        ],
+      },
+      {
+        name: 'Fase 3 — Tumbas y cierre',
+        description: '',
+        events: [
+          'La Tumba Acuática obliga a curación reactiva sobre objetivos inmovilizados.',
+          'No cortar el control de múrlocos por intentar forzar DPS final al boss.',
+          'Cooldowns defensivos de raid se reservan para combinaciones de Ola + adds + tumba.',
+          'El final es limpio si cada ola de múrlocos se resuelve en segundos.',
+        ],
+      },
+    ],
   },
   {
     id: 'vashj',

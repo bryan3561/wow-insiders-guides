@@ -18,6 +18,29 @@ export default function BossCard({ boss }: Props) {
   const diff = difficultyConfig[boss.difficulty - 1];
   const filledStars = '★'.repeat(boss.difficulty);
   const emptyStars = '☆'.repeat(5 - boss.difficulty);
+  const hasDetailedPhases = Boolean(boss.phases && boss.phases.length > 0);
+  const detailedPhases = boss.phases ?? [];
+  const strategySteps = boss.strategy
+    .split(/(?<=[.!?])\s+/)
+    .map((step) => step.trim())
+    .filter((step) => step.length > 0);
+  const fallbackPhases =
+    strategySteps.length >= 3
+      ? [
+          {
+            name: 'Inicio del combate',
+            events: strategySteps.slice(0, Math.min(2, strategySteps.length)),
+          },
+          {
+            name: 'Desarrollo y control',
+            events: strategySteps.slice(2, Math.max(2, strategySteps.length - 1)),
+          },
+          {
+            name: 'Cierre y ejecución',
+            events: strategySteps.slice(Math.max(2, strategySteps.length - 1)),
+          },
+        ].filter((phase) => phase.events.length > 0)
+      : [];
 
   return (
     <section
@@ -62,11 +85,11 @@ export default function BossCard({ boss }: Props) {
 
       <div className="px-5 py-4 space-y-4">
         {/* Phases */}
-        {boss.phases && boss.phases.length > 0 && (
+        {hasDetailedPhases && (
           <div>
             <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Fases</h3>
             <div className="flex flex-col gap-2">
-              {boss.phases.map((phase, i) => (
+              {detailedPhases.map((phase, i) => (
                 <div key={i} className="bg-gray-800/60 border border-gray-700/60 rounded-lg p-3">
                   <div className="text-yellow-500 text-xs font-bold mb-2">{phase.name}</div>
                   {phase.events && phase.events.length > 0 ? (
@@ -81,6 +104,27 @@ export default function BossCard({ boss }: Props) {
                   ) : (
                     <div className="text-gray-400 text-sm leading-relaxed">{phase.description}</div>
                   )}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {!hasDetailedPhases && fallbackPhases.length > 0 && (
+          <div>
+            <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Guía por fases</h3>
+            <div className="flex flex-col gap-2">
+              {fallbackPhases.map((phase, i) => (
+                <div key={i} className="bg-gray-800/60 border border-gray-700/60 rounded-lg p-3">
+                  <div className="text-yellow-500 text-xs font-bold mb-2">{phase.name}</div>
+                  <ul className="space-y-1.5">
+                    {phase.events.map((event, j) => (
+                      <li key={j} className="flex items-start gap-2 text-sm text-gray-300 leading-relaxed">
+                        <span className="mt-1.5 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-yellow-600" />
+                        <InlineRef text={event} refs={boss.spellRefs} />
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               ))}
             </div>

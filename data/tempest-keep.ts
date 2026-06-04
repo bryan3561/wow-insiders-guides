@@ -104,6 +104,38 @@ export const tempestKeepBosses: Boss[] = [
     ],
     strategy:
       'Combate sencillo. Toda la raid separada para evitar el salto de la Carga Estática. Salir de los círculos de Orbe Arcano. Los cuerpo a cuerpo retroceden para el Martilleo.',
+    phases: [
+      {
+        name: 'Fase 1 — Posicionamiento y control de daño',
+        description: '',
+        events: [
+          'Tanque principal fija al boss en el centro y el segundo tanque se mantiene segundo en amenaza.',
+          'Ranged y healers juegan separados para minimizar solapes de Carga Estática.',
+          'Los cuerpo a cuerpo entran y salen en función de Martilleo para evitar daño innecesario.',
+          'La supervivencia depende de reacción inmediata, no de curación bruta.',
+        ],
+      },
+      {
+        name: 'Fase 2 — Presión de habilidades periódicas',
+        description: '',
+        events: [
+          'Cada Orbe Arcano marca una zona: cualquier jugador dentro al impacto suele morir.',
+          'Repulsión puede desordenar amenaza; el tanque secundario debe absorber la transición sin pánico.',
+          'Curanderos priorizan daño de objetivos alcanzados por errores de posición antes de volver al tanque.',
+          'No forzar DPS si la raid está desordenada: primero estabilizar, luego apretar.',
+        ],
+      },
+      {
+        name: 'Fase 3 — Cierre estable',
+        description: '',
+        events: [
+          'Con el boss bajo de vida, mantener el mismo patrón: separación, esquiva y tanques coordinados.',
+          'Cooldowns ofensivos se usan cuando no haya orbes cayendo sobre zonas clave de la raid.',
+          'Un wipe tardío suele venir por relajarse en los círculos de Orbe Arcano.',
+          'Si la ejecución mecánica se mantiene limpia, el kill es consistente.',
+        ],
+      },
+    ],
   },
   {
     id: 'solarian',
