@@ -22,12 +22,24 @@ export default function AbilityRow({ ability }: Props) {
   const [position, setPosition] = useState({ top: 0, left: 0 });
   const [mounted, setMounted] = useState(false);
   const iconRef = useRef<HTMLDivElement>(null);
+  const hideTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     setMounted(true);
+    return () => {
+      if (hideTimeoutRef.current) clearTimeout(hideTimeoutRef.current);
+    };
   }, []);
 
+  const clearHideTimeout = () => {
+    if (hideTimeoutRef.current) {
+      clearTimeout(hideTimeoutRef.current);
+      hideTimeoutRef.current = null;
+    }
+  };
+
   const showTooltip = () => {
+    clearHideTimeout();
     if (!iconRef.current) return;
     const rect = iconRef.current.getBoundingClientRect();
     const tooltipWidth = 320;
@@ -49,12 +61,19 @@ export default function AbilityRow({ ability }: Props) {
     setVisible(true);
   };
 
+  const scheduleHideTooltip = () => {
+    clearHideTimeout();
+    hideTimeoutRef.current = setTimeout(() => setVisible(false), 180);
+  };
+
   const cfg = typeConfig[ability.type];
 
   const tooltip = (
     <div
       style={{ position: 'fixed', top: position.top, left: position.left, zIndex: 9999, width: 320 }}
-      className="bg-[#0d0d18] border border-yellow-700 rounded-xl shadow-2xl pointer-events-none overflow-hidden"
+      className="bg-[#0d0d18] border border-yellow-700 rounded-xl shadow-2xl pointer-events-auto overflow-hidden"
+      onMouseEnter={showTooltip}
+      onMouseLeave={scheduleHideTooltip}
     >
       <div className="px-3 py-2.5 border-b border-yellow-800/40 flex items-center gap-3 bg-gradient-to-r from-gray-900 to-[#0d0d18]">
         <img
@@ -99,7 +118,7 @@ export default function AbilityRow({ ability }: Props) {
       <div
         ref={iconRef}
         onMouseEnter={showTooltip}
-        onMouseLeave={() => setVisible(false)}
+        onMouseLeave={scheduleHideTooltip}
         className="flex-shrink-0 cursor-help"
       >
         <img
