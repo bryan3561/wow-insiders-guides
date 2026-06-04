@@ -5,13 +5,14 @@ import { clasesMeta } from '@/data/clases-meta';
 
 type Props = {
   params: Promise<{ id: string }>;
+  searchParams: Promise<{ spec?: string }>;
 };
 
 export async function generateStaticParams() {
   return clasesMeta.map((clase) => ({ id: clase.id }));
 }
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({ params }: Pick<Props, 'params'>) {
   const { id } = await params;
   const guide = classGuides[id];
   return {
@@ -21,13 +22,14 @@ export async function generateMetadata({ params }: Props) {
   };
 }
 
-export default async function Page({ params }: Props) {
+export default async function Page({ params, searchParams }: Props) {
   const { id } = await params;
+  const { spec } = await searchParams;
   const guide = classGuides[id];
 
   if (!guide) {
     notFound();
   }
 
-  return <ClassGuidePage guide={guide} />;
+  return <ClassGuidePage guide={guide} selectedSpec={spec} />;
 }
