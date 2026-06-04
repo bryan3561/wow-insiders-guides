@@ -86,9 +86,10 @@ export default function ProfesionesPage() {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {primarias.map((prof) => (
-              <article
+              <Link
                 key={prof.id}
-                className={`bg-gray-900/70 border rounded-xl overflow-hidden ${prof.border}`}
+                href={`/profesiones/${prof.id}`}
+                className={`group block bg-gray-900/70 border rounded-xl overflow-hidden ${prof.border}`}
               >
                 <div className={`h-1.5 bg-gradient-to-r ${prof.color}`} />
                 <div className="p-5">
@@ -110,8 +111,11 @@ export default function ProfesionesPage() {
                     <span className="text-yellow-600 text-xs">⭐</span>
                     <span className="text-xs text-yellow-700">{prof.highlight}</span>
                   </div>
+                  <div className="mt-4 text-xs text-yellow-500 group-hover:text-yellow-300 transition-colors">
+                    Ver guía →
+                  </div>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         </section>
@@ -126,9 +130,10 @@ export default function ProfesionesPage() {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {secundarias.map((prof) => (
-              <article
+              <Link
                 key={prof.id}
-                className={`bg-gray-900/70 border rounded-xl overflow-hidden ${prof.border}`}
+                href={`/profesiones/${prof.id}`}
+                className={`group block bg-gray-900/70 border rounded-xl overflow-hidden ${prof.border}`}
               >
                 <div className={`h-1.5 bg-gradient-to-r ${prof.color}`} />
                 <div className="p-5">
@@ -150,8 +155,11 @@ export default function ProfesionesPage() {
                     <span className="text-yellow-600 text-xs">⭐</span>
                     <span className="text-xs text-yellow-700">{prof.highlight}</span>
                   </div>
+                  <div className="mt-4 text-xs text-yellow-500 group-hover:text-yellow-300 transition-colors">
+                    Ver guía →
+                  </div>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         </section>

@@ -55,3 +55,34 @@ export interface RaidMeta {
   color: string;
   border: string;
 }
+
+export interface LevelingMaterial {
+  name: string;
+  qty: number;
+}
+
+export interface LevelingStep {
+  from: number;
+  to: number;
+  action: string;
+  materials?: LevelingMaterial[];
+  note?: string;
+  alt?: string;
+}
+
+export interface ProfTrainer {
+  name: string;
+  location: string;
+  faction?: 'alianza' | 'horda' | 'neutro';
+}
+
+export interface ProfLevelingGuide {
+  id: string;
+  trainers: ProfTrainer[];
+  totalMaterials: LevelingMaterial[];
+  tips: string[];
+  sections: {
+    label: string;
+    steps: LevelingStep[];
+  }[];
+}
