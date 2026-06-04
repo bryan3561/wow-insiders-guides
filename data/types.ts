@@ -86,3 +86,43 @@ export interface ProfLevelingGuide {
     steps: LevelingStep[];
   }[];
 }
+
+export interface ClassRotationTip {
+  title?: string;
+  description?: string;
+  tips?: string[];
+}
+
+export interface Consumable {
+  name: string;
+  type: 'pocion' | 'comida' | 'buff' | 'otro' | 'Potion' | 'Food' | 'Buff';
+  effect: string;
+  priority?: 'alta' | 'media' | 'baja';
+}
+
+export interface ResourceLink {
+  spec?: string;
+  title?: string;
+  label?: string;
+  url: string;
+  description?: string;
+}
+
+export interface ClassSpec {
+  name: string;
+  role: string;
+  tips: string[];
+}
+
+export interface ClassGuide {
+  id: string;
+  name: string;
+  description: string;
+  roles: string[];
+  specs: ClassSpec[];
+  rotation?: ClassRotationTip[];
+  consumables: Consumable[];
+  talentLinks?: ResourceLink[];
+  talentResources?: ResourceLink[];
+  tips?: string[];
+}

@@ -62,66 +62,73 @@ export default function ClasesPage() {
       <main className="max-w-5xl mx-auto px-4 py-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {clasesMeta.map((clase) => (
-            <article
-              key={clase.id}
-              className={`bg-gray-900/70 border rounded-xl overflow-hidden ${clase.border}`}
-            >
-              <div className={`h-1.5 bg-gradient-to-r ${clase.color}`} />
-              <div className="p-5">
-                {/* Header */}
-                <div className="flex items-start justify-between gap-2 mb-2">
-                  <h3
-                    className="text-lg font-bold text-yellow-400 leading-tight"
-                    style={{ fontFamily: 'var(--font-cinzel), Georgia, serif' }}
-                  >
-                    {clase.name}
-                  </h3>
-                  {clase.isNew && (
-                    <span className="flex-shrink-0 text-xs font-bold px-2 py-0.5 rounded-full bg-yellow-900/40 border border-yellow-700/60 text-yellow-400 uppercase tracking-wide">
-                      NUEVO EN TBC
-                    </span>
-                  )}
-                </div>
-
-                {/* Rol badges */}
-                <div className="flex flex-wrap gap-1.5 mb-3">
-                  {clase.roles.map((rol) => (
-                    <span
-                      key={rol}
-                      className={`text-xs font-medium px-2 py-0.5 rounded-full border ${rolConfig[rol].color}`}
+            <Link key={clase.id} href={`/clases/${clase.id}`} className="group">
+              <article className={`bg-gray-900/70 border rounded-xl overflow-hidden transition-all group-hover:border-yellow-500/50 group-hover:shadow-lg group-hover:shadow-yellow-900/20 ${clase.border}`}>
+                <div className={`h-1.5 bg-gradient-to-r ${clase.color}`} />
+                <div className="p-5">
+                  {/* Header */}
+                  <div className="flex items-start justify-between gap-2 mb-2">
+                    <h3
+                      className="text-lg font-bold text-yellow-400 leading-tight group-hover:text-yellow-300 transition-colors"
+                      style={{ fontFamily: 'var(--font-cinzel), Georgia, serif' }}
                     >
-                      {rolConfig[rol].label}
-                    </span>
-                  ))}
-                </div>
-
-                <p className="text-gray-500 text-xs leading-relaxed mb-4">{clase.description}</p>
-
-                {/* Specs */}
-                <div className="space-y-2">
-                  {clase.specs.map((spec) => (
-                    <div key={spec.name} className="flex items-start gap-2">
-                      <span
-                        className={`flex-shrink-0 text-xs font-bold px-1.5 py-0.5 rounded border ${rolConfig[spec.rol].color}`}
-                      >
-                        {spec.name}
+                      {clase.name}
+                    </h3>
+                    {clase.isNew && (
+                      <span className="flex-shrink-0 text-xs font-bold px-2 py-0.5 rounded-full bg-yellow-900/40 border border-yellow-700/60 text-yellow-400 uppercase tracking-wide">
+                        NUEVO EN TBC
                       </span>
-                      <p className="text-xs text-gray-600 leading-snug">{spec.descripcion}</p>
-                    </div>
-                  ))}
-                </div>
+                    )}
+                  </div>
 
-                {/* Gear info */}
-                <div className="mt-4 pt-3 border-t border-gray-800 space-y-1">
-                  <p className="text-xs text-gray-700">
-                    <span className="text-gray-600">Armadura:</span> {clase.armadura}
-                  </p>
-                  <p className="text-xs text-gray-700">
-                    <span className="text-gray-600">Armas:</span> {clase.armas}
-                  </p>
+                  {/* Rol badges */}
+                  <div className="flex flex-wrap gap-1.5 mb-3">
+                    {clase.roles.map((rol) => (
+                      <span
+                        key={rol}
+                        className={`text-xs font-medium px-2 py-0.5 rounded-full border ${rolConfig[rol].color}`}
+                      >
+                        {rolConfig[rol].label}
+                      </span>
+                    ))}
+                  </div>
+
+                  <p className="text-gray-500 text-xs leading-relaxed mb-4">{clase.description}</p>
+
+                  {/* Specs */}
+                  <div className="space-y-2">
+                    {clase.specs.map((spec) => (
+                      <div key={spec.name} className="flex items-start gap-2">
+                        <span
+                          className={`flex-shrink-0 text-xs font-bold px-1.5 py-0.5 rounded border ${rolConfig[spec.rol].color}`}
+                        >
+                          {spec.name}
+                        </span>
+                        <p className="text-xs text-gray-600 leading-snug">{spec.descripcion}</p>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Gear info */}
+                  <div className="mt-4 pt-3 border-t border-gray-800 space-y-1">
+                    <p className="text-xs text-gray-700">
+                      <span className="text-gray-600">Armadura:</span> {clase.armadura}
+                    </p>
+                    <p className="text-xs text-gray-700">
+                      <span className="text-gray-600">Armas:</span> {clase.armas}
+                    </p>
+                  </div>
+
+                  {/* View guide link */}
+                  <div className="mt-4 pt-3 border-t border-gray-800 flex items-center justify-between">
+                    <span className="text-xs font-semibold text-gray-600">Ver guía</span>
+                    <span className="text-yellow-400 group-hover:translate-x-1 transition-transform">
+                      →
+                    </span>
+                  </div>
                 </div>
-              </div>
-            </article>
+              </article>
+            </Link>
           ))}
         </div>
       </main>
