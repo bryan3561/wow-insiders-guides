@@ -47,10 +47,24 @@ function RefSpan({ label, spellRef }: { label: string; spellRef: SpellRef }) {
   const [pos, setPos]           = useState({ top: 0, left: 0 });
   const [mounted, setMounted]   = useState(false);
   const spanRef                 = useRef<HTMLSpanElement>(null);
+  const hideTimeoutRef          = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  useEffect(() => { setMounted(true); }, []);
+  useEffect(() => {
+    setMounted(true);
+    return () => {
+      if (hideTimeoutRef.current) clearTimeout(hideTimeoutRef.current);
+    };
+  }, []);
+
+  const clearHideTimeout = () => {
+    if (hideTimeoutRef.current) {
+      clearTimeout(hideTimeoutRef.current);
+      hideTimeoutRef.current = null;
+    }
+  };
 
   const show = () => {
+    clearHideTimeout();
     if (!spanRef.current) return;
     const r = spanRef.current.getBoundingClientRect();
     const w = 300;
@@ -66,13 +80,20 @@ function RefSpan({ label, spellRef }: { label: string; spellRef: SpellRef }) {
     setVisible(true);
   };
 
+  const scheduleHide = () => {
+    clearHideTimeout();
+    hideTimeoutRef.current = setTimeout(() => setVisible(false), 180);
+  };
+
   const schoolCls = schoolColors[spellRef.school] ?? schoolColors['Mecánica'];
   const href      = wowheadUrl(spellRef.id, spellRef.type);
 
   const tooltip = (
     <div
       style={{ position: 'fixed', top: pos.top, left: pos.left, zIndex: 9999, width: 300 }}
-      className="bg-[#0d0d18] border border-yellow-700/80 rounded-xl shadow-2xl pointer-events-none overflow-hidden"
+      className="bg-[#0d0d18] border border-yellow-700/80 rounded-xl shadow-2xl pointer-events-auto overflow-hidden"
+      onMouseEnter={show}
+      onMouseLeave={scheduleHide}
     >
       {/* Header */}
       <div className="flex items-center gap-3 px-3 py-2.5 border-b border-yellow-800/30 bg-gradient-to-r from-gray-900 to-[#0d0d18]">
@@ -119,7 +140,7 @@ function RefSpan({ label, spellRef }: { label: string; spellRef: SpellRef }) {
       <span
         ref={spanRef}
         onMouseEnter={show}
-        onMouseLeave={() => setVisible(false)}
+        onMouseLeave={scheduleHide}
         className="text-yellow-300 border-b border-dashed border-yellow-600/50 cursor-help hover:text-yellow-200 hover:border-yellow-400 transition-colors"
       >
         {label}
