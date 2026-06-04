@@ -104,7 +104,7 @@ export default function RaidPage({ meta, bosses }: Props) {
       <footer className="border-t mt-16 py-8" style={{ borderColor: '#1e1e2e' }}>
         <div className="max-w-7xl mx-auto px-4 text-center">
           <p className="text-sm" style={{ color: '#3a3830' }}>
-            WoW Insiders Guides — {meta.name} · TBC Classic en español
+            WoW Resurgence Syndicate Guides — {meta.name} · TBC Classic en español
           </p>
         </div>
       </footer>

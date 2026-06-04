@@ -10,7 +10,7 @@ const cinzel = Cinzel({
 });
 
 export const metadata: Metadata = {
-  title: 'WoW Insiders — Guía de Karazhan TBC Classic',
+  title: 'WoW Resurgence Syndicate — Guía de Karazhan TBC Classic',
   description:
     'Guía completa en español de todos los jefes de Karazhan para World of Warcraft TBC Classic. Habilidades, estrategias y consejos.',
   keywords: 'Karazhan, WoW TBC Classic, guia jefes, español, World of Warcraft',

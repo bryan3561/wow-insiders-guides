@@ -2,7 +2,7 @@ import { raidsMeta } from '@/data/raids-meta';
 import RaidCard from '@/components/RaidCard';
 
 export const metadata = {
-  title: 'WoW Insiders Guides — Raids TBC Classic en Español',
+  title: 'WoW Resurgence Syndicate Guides — Raids TBC Classic en Español',
   description: 'Guías completas en español de todas las raids de World of Warcraft TBC Classic.',
 };
 
@@ -84,7 +84,7 @@ export default function Home() {
       <footer className="border-t mt-16 py-8" style={{ borderColor: '#1e1e2e' }}>
         <div className="max-w-5xl mx-auto px-4 text-center space-y-1">
           <p className="text-sm" style={{ color: '#3a3830' }}>
-            WoW Insiders Guides — Guías de TBC Classic en español
+            WoW Resurgence Syndicate Guides — Guías de TBC Classic en español
           </p>
           <p className="text-xs" style={{ color: '#2a2820' }}>
             World of Warcraft es marca registrada de Blizzard Entertainment.
