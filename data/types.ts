@@ -96,7 +96,7 @@ export interface ClassRotationTip {
 
 export interface Consumable {
   name: string;
-  type: 'pocion' | 'comida' | 'buff' | 'otro' | 'Potion' | 'Food' | 'Buff';
+  type: 'flask' | 'elixir' | 'food' | 'potion' | 'weapon' | 'misc';
   effect: string;
   priority?: 'alta' | 'media' | 'baja';
 }

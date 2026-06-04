@@ -7,6 +7,14 @@ export default function ClassGuidePage({ guide }: { guide: ClassGuide }) {
     Healer: 'bg-green-600',
     DPS: 'bg-red-600',
   };
+  const consumableLabels: Record<string, string> = {
+    flask: 'Flask',
+    elixir: 'Elixir',
+    food: 'Food',
+    potion: 'Potion',
+    weapon: 'Weapon Buff',
+    misc: 'Misc',
+  };
 
   return (
     <div style={{ background: '#080810' }} className="min-h-screen pb-16">
@@ -108,7 +116,7 @@ export default function ClassGuidePage({ guide }: { guide: ClassGuide }) {
                 <div className="flex items-start justify-between mb-2">
                   <h4 className="font-bold text-amber-300">{consumable.name}</h4>
                   <span className="text-xs bg-amber-600/30 text-amber-300 px-2 py-1 rounded">
-                    {consumable.type}
+                    {consumableLabels[consumable.type] || consumable.type}
                   </span>
                 </div>
                 <p className="text-gray-400 text-sm">{consumable.effect}</p>

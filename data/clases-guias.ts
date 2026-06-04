@@ -37,11 +37,11 @@ export const classGuides: Record<string, ClassGuide> = {
       },
     ],
     consumables: [
-      { type: 'pocion', name: 'Super Mana Potion', effect: '+1800 Mana' },
-      { type: 'pocion', name: 'Haste Potion', effect: '+25% Haste por 15s' },
-      { type: 'comida', name: 'Roasted Clefthoof', effect: '+20 Sta, +20 Int' },
-      { type: 'buff', name: 'Arcane Intellect', effect: '+40 Int por grupo' },
-      { type: 'buff', name: 'Mark of the Wild', effect: '+5% stats' },
+      { type: 'flask', name: 'Flask of Blinding Light', effect: '+Spell Damage for caster builds' },
+      { type: 'elixir', name: "Adept's Elixir", effect: '+Spell Damage and Healing' },
+      { type: 'food', name: 'Blackened Basilisk', effect: '+Spell Damage food' },
+      { type: 'potion', name: 'Super Mana Potion', effect: 'Mana restore for long encounters' },
+      { type: 'weapon', name: 'Brilliant Wizard Oil', effect: '+Spell Damage on weapon' },
     ],
     talentResources: [
       {
@@ -98,11 +98,11 @@ export const classGuides: Record<string, ClassGuide> = {
       },
     ],
     consumables: [
-      { type: 'pocion', name: 'Haste Potion', effect: '+25% Haste por 15s' },
-      { type: 'pocion', name: 'Damage Potion', effect: '+40 Ataque' },
-      { type: 'comida', name: 'Roasted Clefthoof', effect: '+20 Sta, +20 Agi' },
-      { type: 'buff', name: 'Blessing of Kings', effect: '+10% stats' },
-      { type: 'buff', name: 'Blessing of Might', effect: '+25 Ataque' },
+      { type: 'flask', name: 'Flask of Relentless Assault', effect: '+Attack Power for DPS builds' },
+      { type: 'elixir', name: 'Elixir of Major Agility', effect: '+Agility for ranged physical DPS' },
+      { type: 'food', name: 'Grilled Mudfish', effect: '+Agility food' },
+      { type: 'potion', name: 'Haste Potion', effect: 'Short burst of attack speed' },
+      { type: 'weapon', name: 'Adamantite Sharpening Stone', effect: '+Weapon damage for melee variants' },
     ],
     talentResources: [
       {
@@ -159,11 +159,11 @@ export const classGuides: Record<string, ClassGuide> = {
       },
     ],
     consumables: [
-      { type: 'pocion', name: 'Super Mana Potion', effect: '+1800 Mana' },
-      { type: 'pocion', name: 'Spell Power Potion', effect: '+40 Daño Mágico' },
-      { type: 'comida', name: 'Spicy Crawdad', effect: '+20 Inte, +20 Spi' },
-      { type: 'buff', name: 'Arcane Intellect', effect: '+40 Int' },
-      { type: 'buff', name: 'Dampen Magic', effect: '-50% magic damage' },
+      { type: 'flask', name: 'Flask of Blinding Light', effect: '+Spell Damage for raiding' },
+      { type: 'elixir', name: 'Elixir of Draenic Wisdom', effect: '+Intellect and Spirit' },
+      { type: 'food', name: 'Blackened Basilisk', effect: '+Spell Damage food' },
+      { type: 'potion', name: 'Super Mana Potion', effect: 'Mana restore for long fights' },
+      { type: 'weapon', name: 'Brilliant Wizard Oil', effect: '+Spell Damage on weapon' },
     ],
     talentResources: [
       {
@@ -220,11 +220,11 @@ export const classGuides: Record<string, ClassGuide> = {
       },
     ],
     consumables: [
-      { type: 'pocion', name: 'Super Mana Potion', effect: '+1800 Mana' },
-      { type: 'pocion', name: 'Defense Potion', effect: '+350 Armor' },
-      { type: 'comida', name: 'Roasted Clefthoof', effect: '+20 Sta, +20 Str' },
-      { type: 'buff', name: 'Blessing of Kings', effect: '+10% stats' },
-      { type: 'buff', name: 'Blessing of Sanctuary', effect: '+Sta y Armor' },
+      { type: 'flask', name: 'Flask of Fortification', effect: '+Health and defense for tanking' },
+      { type: 'elixir', name: 'Elixir of Major Defense', effect: '+Armor and survivability' },
+      { type: 'food', name: 'Roasted Clefthoof', effect: '+Strength and Stamina food' },
+      { type: 'potion', name: 'Super Mana Potion', effect: 'Mana restore for Holy and Retribution' },
+      { type: 'weapon', name: 'Adamantite Sharpening Stone', effect: '+Weapon damage for Retribution' },
     ],
     talentResources: [
       {
@@ -281,11 +281,11 @@ export const classGuides: Record<string, ClassGuide> = {
       },
     ],
     consumables: [
-      { type: 'pocion', name: 'Super Mana Potion', effect: '+1800 Mana' },
-      { type: 'pocion', name: 'Spell Power Potion', effect: '+40 Daño Mágico' },
-      { type: 'comida', name: 'Spicy Crawdad', effect: '+20 Inte, +20 Spi' },
-      { type: 'buff', name: 'Power Word: Fortitude', effect: '+131 HP' },
-      { type: 'buff', name: 'Divine Spirit', effect: '+50 Spirit' },
+      { type: 'flask', name: 'Flask of Blinding Light', effect: '+Spell Damage for Holy/Shadow' },
+      { type: 'elixir', name: 'Elixir of Healing Power', effect: '+Healing power for healers' },
+      { type: 'food', name: 'Golden Fish Sticks', effect: '+Healing food' },
+      { type: 'potion', name: 'Super Mana Potion', effect: 'Mana restore for sustained healing' },
+      { type: 'weapon', name: 'Brilliant Mana Oil', effect: '+Mana regen on weapon' },
     ],
     talentResources: [
       {
@@ -342,11 +342,11 @@ export const classGuides: Record<string, ClassGuide> = {
       },
     ],
     consumables: [
-      { type: 'pocion', name: 'Haste Potion', effect: '+25% Haste por 15s' },
-      { type: 'pocion', name: 'Damage Potion', effect: '+40 Ataque' },
-      { type: 'comida', name: 'Roasted Clefthoof', effect: '+20 Sta, +20 Agi' },
-      { type: 'buff', name: 'Blessing of Kings', effect: '+10% stats' },
-      { type: 'buff', name: 'Blessing of Might', effect: '+25 Ataque' },
+      { type: 'flask', name: 'Flask of Relentless Assault', effect: '+Attack Power for Mutilate/Combat' },
+      { type: 'elixir', name: 'Elixir of Major Agility', effect: '+Agility for physical DPS' },
+      { type: 'food', name: 'Grilled Mudfish', effect: '+Agility food' },
+      { type: 'potion', name: 'Haste Potion', effect: 'Short burst of attack speed' },
+      { type: 'weapon', name: 'Adamantite Sharpening Stone', effect: '+Weapon damage for melee builds' },
     ],
     talentResources: [
       {
@@ -403,11 +403,11 @@ export const classGuides: Record<string, ClassGuide> = {
       },
     ],
     consumables: [
-      { type: 'pocion', name: 'Super Mana Potion', effect: '+1800 Mana' },
-      { type: 'pocion', name: 'Spell Power Potion', effect: '+40 Daño Mágico' },
-      { type: 'comida', name: 'Roasted Clefthoof', effect: '+20 Sta, +20 Int' },
-      { type: 'buff', name: 'Windfury Totem', effect: '+25% Ataque y swing' },
-      { type: 'buff', name: 'Mana Spring Totem', effect: '+50 Mana/5sec' },
+      { type: 'flask', name: 'Flask of Blinding Light / Relentless Assault', effect: 'Swap based on Elemental, Resto or Enhancement spec' },
+      { type: 'elixir', name: 'Elixir of Draenic Wisdom', effect: '+Intellect and Spirit for caster specs' },
+      { type: 'food', name: 'Blackened Basilisk', effect: '+Spell Damage food for Elemental' },
+      { type: 'potion', name: 'Super Mana Potion', effect: 'Mana restore for Elemental and Resto' },
+      { type: 'weapon', name: 'Brilliant Wizard Oil / Adamantite Sharpening Stone', effect: 'Caster oil or melee stone depending on spec' },
     ],
     talentResources: [
       {
@@ -464,11 +464,11 @@ export const classGuides: Record<string, ClassGuide> = {
       },
     ],
     consumables: [
-      { type: 'pocion', name: 'Super Mana Potion', effect: '+1800 Mana' },
-      { type: 'pocion', name: 'Spell Power Potion', effect: '+40 Daño Mágico' },
-      { type: 'comida', name: 'Spicy Crawdad', effect: '+20 Inte, +20 Spi' },
-      { type: 'buff', name: 'Arcane Intellect', effect: '+40 Int' },
-      { type: 'buff', name: 'Fel Armor', effect: '+Resistencia mágica' },
+      { type: 'flask', name: 'Flask of Supreme Power', effect: '+Spell damage for warlock DPS' },
+      { type: 'elixir', name: 'Elixir of Major Shadow Power', effect: '+Shadow damage for Affliction and Destruction' },
+      { type: 'food', name: 'Blackened Basilisk', effect: '+Spell Damage food' },
+      { type: 'potion', name: 'Super Mana Potion', effect: 'Mana restore for long encounters' },
+      { type: 'misc', name: 'Dark Rune', effect: 'Mana restore on a separate cooldown' },
     ],
     talentResources: [
       {
@@ -525,11 +525,11 @@ export const classGuides: Record<string, ClassGuide> = {
       },
     ],
     consumables: [
-      { type: 'pocion', name: 'Haste Potion', effect: '+25% Haste por 15s' },
-      { type: 'pocion', name: 'Damage Potion', effect: '+40 Ataque' },
-      { type: 'comida', name: 'Roasted Clefthoof', effect: '+20 Sta, +20 Str' },
-      { type: 'buff', name: 'Blessing of Kings', effect: '+10% stats' },
-      { type: 'buff', name: 'Blessing of Might', effect: '+25 Ataque' },
+      { type: 'flask', name: 'Flask of Fortification / Relentless Assault', effect: 'Swap between tank and DPS setups' },
+      { type: 'elixir', name: 'Elixir of Major Defense / Major Strength', effect: 'Armor for tanks or strength for Arms' },
+      { type: 'food', name: 'Roasted Clefthoof', effect: '+Strength and Stamina food' },
+      { type: 'potion', name: 'Haste Potion / Ironshield Potion', effect: 'DPS burst or tank mitigation' },
+      { type: 'weapon', name: 'Adamantite Sharpening Stone', effect: '+Weapon damage for melee DPS' },
     ],
     talentResources: [
       {
