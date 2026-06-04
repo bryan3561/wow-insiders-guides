@@ -52,6 +52,9 @@ export default function RaidPage({ meta, bosses }: Props) {
             >
               {meta.name}
             </h1>
+            {meta.nameEn && meta.nameEn !== meta.name && (
+              <p className="text-sm italic mt-1" style={{ color: '#4a4540' }}>{meta.nameEn}</p>
+            )}
             <p className="mt-3 text-base max-w-xl mx-auto" style={{ color: '#7a7060' }}>
               {meta.description}
             </p>

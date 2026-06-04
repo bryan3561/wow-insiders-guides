@@ -39,6 +39,7 @@ export default function RaidCard({ raid }: Props) {
             >
               {raid.name}
             </h2>
+            <p className="text-xs text-gray-600 italic mt-0.5">{raid.nameEn}</p>
           </div>
           <div className="flex-shrink-0 text-right">
             <div className={`text-xs font-semibold ${diff.color}`}>

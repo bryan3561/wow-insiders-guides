@@ -45,6 +45,7 @@ export interface RaidMeta {
   id: string;
   slug: string;
   name: string;
+  nameEn: string;
   shortName: string;
   description: string;
   players: 10 | 25;
@@ -95,7 +96,7 @@ export interface ClassRotationTip {
 
 export interface Consumable {
   name: string;
-  type: 'pocion' | 'comida' | 'buff' | 'otro' | 'Potion' | 'Food' | 'Buff';
+  type: 'flask' | 'elixir' | 'food' | 'potion' | 'weapon' | 'misc';
   effect: string;
   priority?: 'alta' | 'media' | 'baja';
 }
@@ -117,6 +118,7 @@ export interface ClassSpec {
 export interface ClassGuide {
   id: string;
   name: string;
+  nameEn?: string;
   description: string;
   roles: string[];
   specs: ClassSpec[];

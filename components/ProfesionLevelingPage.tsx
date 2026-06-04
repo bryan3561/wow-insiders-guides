@@ -134,6 +134,9 @@ export default function ProfesionLevelingPage({ guide, meta }: Props) {
             >
               {meta.name}
             </h1>
+            {meta.nameEn && (
+              <p className="text-sm italic mt-1" style={{ color: '#4a4540' }}>{meta.nameEn}</p>
+            )}
             <p className="mt-3 text-sm max-w-xl mx-auto" style={{ color: '#6a6258' }}>
               {meta.description}
             </p>
