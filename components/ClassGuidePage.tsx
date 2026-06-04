@@ -1,4 +1,5 @@
 import { ClassGuide } from '@/data/types';
+import Link from 'next/link';
 
 export default function ClassGuidePage({ guide }: { guide: ClassGuide }) {
   const roleColors: Record<string, string> = {
@@ -9,6 +10,17 @@ export default function ClassGuidePage({ guide }: { guide: ClassGuide }) {
 
   return (
     <div style={{ background: '#080810' }} className="min-h-screen pb-16">
+      <div className="border-b border-amber-600/15 bg-[#080810]/90 backdrop-blur">
+        <div className="mx-auto flex max-w-4xl items-center justify-between px-6 py-3 text-xs">
+          <Link href="/clases" className="text-gray-400 hover:text-amber-400 transition-colors">
+            ← Clases
+          </Link>
+          <Link href="/" className="text-gray-500 hover:text-amber-400 transition-colors">
+            Menú principal
+          </Link>
+        </div>
+      </div>
+
       {/* Header */}
       <div
         style={{ background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)' }}
