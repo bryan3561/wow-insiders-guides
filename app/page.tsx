@@ -1,16 +1,38 @@
-import { raidsMeta } from '@/data/raids-meta';
-import RaidCard from '@/components/RaidCard';
+import Link from 'next/link';
 
 export const metadata = {
-  title: 'WoW Resurgence Syndicate Guides — Raids TBC Classic en Español',
-  description: 'Guías completas en español de todas las raids de World of Warcraft TBC Classic.',
+  title: 'WoW Resurgence Syndicate — Guías TBC Classic en Español',
+  description: 'Guías completas en español para World of Warcraft TBC Classic: raids, profesiones y clases.',
 };
 
-const tierGroups = [
-  { label: 'Tier 4 — Parche 2.0', raids: ['karazhan', 'gruul', 'magtheridon'] },
-  { label: 'Tier 5 — Parche 2.1', raids: ['ssc', 'tempest-keep'] },
-  { label: 'Tier 6 — Parche 2.1', raids: ['mount-hyjal', 'black-temple'] },
-  { label: 'Contenido Extra', raids: ['zulaman', 'sunwell'] },
+const modules = [
+  {
+    href: '/raids',
+    icon: '⚔️',
+    title: 'Raids',
+    description: 'Guías completas de todas las raids de TBC Classic',
+    color: 'from-yellow-900/60 to-amber-950/60',
+    border: 'border-yellow-700/50',
+    accent: '#f0d060',
+  },
+  {
+    href: '/profesiones',
+    icon: '🔨',
+    title: 'Profesiones',
+    description: 'Domina las profesiones de The Burning Crusade',
+    color: 'from-purple-900/60 to-violet-950/60',
+    border: 'border-purple-700/50',
+    accent: '#c084fc',
+  },
+  {
+    href: '/clases',
+    icon: '🧙',
+    title: 'Clases',
+    description: 'Conoce cada clase de WoW TBC Classic',
+    color: 'from-blue-900/60 to-indigo-950/60',
+    border: 'border-blue-700/50',
+    accent: '#93c5fd',
+  },
 ];
 
 export default function Home() {
@@ -31,7 +53,7 @@ export default function Home() {
             className="text-xs font-bold uppercase mb-3"
             style={{ color: '#c9a227', letterSpacing: '0.35em' }}
           >
-            World of Warcraft
+            WoW Resurgence Syndicate
           </p>
           <h1
             className="text-5xl md:text-6xl font-bold"
@@ -43,42 +65,42 @@ export default function Home() {
             className="text-2xl md:text-3xl mt-2 font-semibold"
             style={{ color: '#c9a227', fontFamily: 'var(--font-cinzel), Georgia, serif' }}
           >
-            Guías de Raids
+            Guías en Español
           </p>
           <p className="mt-4 text-base max-w-lg mx-auto" style={{ color: '#6a6258' }}>
-            Estrategias, habilidades y consejos para todas las raids de The Burning Crusade Classic, completamente en español.
+            Todo lo que necesitas para dominar The Burning Crusade Classic: raids, profesiones y clases.
           </p>
-          <div
-            className="flex flex-wrap items-center justify-center gap-6 mt-5 text-sm"
-            style={{ color: '#4a4540' }}
-          >
-            <span>🏰 {raidsMeta.length} raids</span>
-            <span>⚔️ {raidsMeta.reduce((n, r) => n + r.bossCount, 0)} jefes totales</span>
-            <span>🌍 Todo en español</span>
-          </div>
         </div>
       </header>
 
-      {/* Raids by tier */}
-      <main className="max-w-5xl mx-auto px-4 py-10 space-y-10">
-        {tierGroups.map(({ label, raids: raidIds }) => {
-          const raids = raidIds.map((id) => raidsMeta.find((r) => r.id === id)!).filter(Boolean);
-          return (
-            <section key={label}>
-              <h2
-                className="text-xs font-bold uppercase tracking-widest mb-4"
-                style={{ color: '#6a5820' }}
-              >
-                {label}
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {raids.map((raid) => (
-                  <RaidCard key={raid.id} raid={raid} />
-                ))}
+      {/* Module cards */}
+      <main className="max-w-4xl mx-auto px-4 py-14">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          {modules.map((mod) => (
+            <Link
+              key={mod.href}
+              href={mod.href}
+              className={`group block bg-gray-900/70 border rounded-xl overflow-hidden transition-all duration-200 hover:scale-[1.03] hover:shadow-2xl hover:shadow-yellow-900/20 ${mod.border}`}
+            >
+              <div className={`h-1.5 bg-gradient-to-r ${mod.color}`} />
+              <div className="p-6 text-center">
+                <div className="text-4xl mb-3">{mod.icon}</div>
+                <h2
+                  className="text-xl font-bold mb-2 group-hover:text-yellow-300 transition-colors"
+                  style={{ color: mod.accent, fontFamily: 'var(--font-cinzel), Georgia, serif' }}
+                >
+                  {mod.title}
+                </h2>
+                <p className="text-xs leading-relaxed" style={{ color: '#6a6258' }}>
+                  {mod.description}
+                </p>
+                <span className="inline-block mt-4 text-xs font-medium transition-colors text-yellow-700 group-hover:text-yellow-500">
+                  Explorar →
+                </span>
               </div>
-            </section>
-          );
-        })}
+            </Link>
+          ))}
+        </div>
       </main>
 
       <footer className="border-t mt-16 py-8" style={{ borderColor: '#1e1e2e' }}>

@@ -3,7 +3,7 @@ import { raidsMeta } from '@/data/raids-meta';
 import RaidPage from '@/components/RaidPage';
 
 export const metadata = {
-  title: "Guía de Guarida de Magtheridon — WoW TBC Classic en Español",
+  title: 'Guía de Guarida de Magtheridon — WoW TBC Classic en Español',
 };
 
 export default function MagtheridonPage() {

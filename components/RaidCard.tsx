@@ -17,7 +17,7 @@ export default function RaidCard({ raid }: Props) {
 
   return (
     <Link
-      href={`/${raid.slug}`}
+      href={`/raids/${raid.slug}`}
       className={`group block bg-gray-900/70 border rounded-xl overflow-hidden transition-all duration-200 hover:scale-[1.02] hover:shadow-2xl hover:shadow-yellow-900/20 ${raid.border}`}
     >
       {/* Color band */}

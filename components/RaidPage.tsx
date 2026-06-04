@@ -33,7 +33,7 @@ export default function RaidPage({ meta, bosses }: Props) {
         <div className="relative max-w-7xl mx-auto px-4 pt-4 pb-10">
           {/* Back to home */}
           <Link
-            href="/"
+            href="/raids"
             className="inline-flex items-center gap-1.5 text-xs text-gray-500 hover:text-yellow-400 transition-colors mb-6"
           >
             ← Todas las raids
